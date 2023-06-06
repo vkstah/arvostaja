@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container-slim">
 	<slot />
 </div>
 
 <style lang="scss">
-	.container {
-		max-width: 1360px;
+	.container-slim {
+		max-width: 860px;
 		margin: 0 auto;
 		margin-left: auto;
 		margin-right: auto;

@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
 	import Button from '../components/Button/Button.svelte';
+	import Chart from '../components/Chart/Chart.svelte';
 	import Container from '../components/Container/Container.svelte';
+	import ContainerSlim from '../components/Container/ContainerSlim.svelte';
 </script>
 
-<Container>
+<ContainerSlim>
 	<h1>Arvostaja</h1>
 	<p>
 		Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset koemme
@@ -17,7 +19,15 @@
 		Mietitään asiaa esimerkin kautta:
 	</p>
 	<Button>Button</Button>
-</Container>
+	<div class="container-chart">
+		<Chart />
+	</div>
+</ContainerSlim>
 
 <style lang="scss">
+	.container-chart {
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 </style>
