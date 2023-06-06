@@ -1,2 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import Button from '../components/Button/Button.svelte';
+	import Container from '../components/Container/Container.svelte';
+</script>
+
+<Container>
+	<h1>Arvostaja</h1>
+	<p>
+		Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset koemme
+		päivittäisessä elämässämme. Tämä vinouma tapahtuu, kun henkilö käyttää ensimmäistä saamaansa
+		tietoa viitepisteenä päätöksenteossa, jolloin myöhemmät päätökset perustuvat tähän
+		viitepisteeseen. Tämä voi johtaa virheellisiin päätöksiin ja arvioihin, sillä viitepiste voi
+		olla epäluotettava tai harhaanjohtava. <a href="#">Ankkurointivinouma</a> on erityisen merkittävä
+		esimerkiksi hinnoittelussa ja neuvotteluissa. Hinta tai tarjous, jonka henkilö ensimmäiseksi kuulee,
+		voi muodostaa viitepisteen, johon myöhemmät tarjoukset verrataan. Tämä voi johtaa siihen, että henkilö
+		hyväksyy tarjouksen, joka ei olisi ollut hyväksyttävissä, jos hän olisi saanut erilaisen viitepisteen.
+		Mietitään asiaa esimerkin kautta:
+	</p>
+	<Button>Button</Button>
+</Container>
+
+<style lang="scss">
+</style>

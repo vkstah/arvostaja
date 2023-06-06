@@ -1,0 +1,13 @@
+// Default links everywhere
+a {
+	color: var(--color-link-text);
+	text-decoration: underline;
+	text-decoration-color: var(--color-link-text);
+	text-underline-offset: 0.5rem;
+	transition: all 0.15s;
+
+	&:hover,
+	&:focus {
+		text-underline-offset: 0.7rem;
+	}
+}

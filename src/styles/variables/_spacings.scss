@@ -1,0 +1,11 @@
+:root {
+	// Paddings
+	--padding-container-horizontal: 2rem;
+	--padding-container-vertical: 6.4rem;
+
+	// Mobile
+	@media (max-width: 600px) {
+		--padding-container-horizontal: 1.8rem;
+		--padding-container-vertical: 4rem;
+	}
+}

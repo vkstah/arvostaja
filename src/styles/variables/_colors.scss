@@ -1,0 +1,17 @@
+:root {
+	// Color pool
+	--color-cod-gray: #171717;
+	--color-cadet-blue: #a9adc1;
+	--color-governor-bay: #4338ca;
+	--color-white: #fff;
+
+	// Elements
+	--color-heading: var(--color-white);
+	--color-paragraph: var(--color-cadet-blue);
+	--color-background-site: var(--color-cod-gray);
+	--color-link-text: var(--color-white);
+
+	// States
+	--color-success: #fff;
+	--color-error: #fff;
+}
