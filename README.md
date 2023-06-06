@@ -2,17 +2,15 @@
 
 Arvostaja is a web application that consists of investing related tools and features.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+Silence is golden.
 
-```bash
-# create a new project in the current directory
-$ npm create svelte@latest
+## Todo
 
-# create a new project in my-app
-$ npm create svelte@latest my-app
-```
+- Compound interest calculator with visual graph of growth
+- Blog with articles composed in Markdown / .md files
+- Simple DCF calculator
 
 ## Developing
 
