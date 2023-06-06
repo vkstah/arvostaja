@@ -5,7 +5,6 @@
 	import ContainerSlim from '../components/Container/ContainerSlim.svelte';
 </script>
 
-<Container>Arvostaja</Container>
 <ContainerSlim>
 	<h1>Arvostaja</h1>
 	<p>
