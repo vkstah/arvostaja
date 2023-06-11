@@ -6,13 +6,29 @@
 	<title>Arvostaja</title>
 </svelte:head>
 
-<div class="layout">
+<div>
+	<header class="header">
+		<a href="/" class="title">Arvostaja</a>
+	</header>
 	<slot />
 </div>
 
-<style>
-	.layout {
+<style lang="scss">
+	.header {
+		display: flex;
+		justify-content: center;
+		padding: 0.5rem;
+		position: sticky;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
 		background-color: var(--color-background-site);
-		min-height: 100vh;
+		box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
+	}
+
+	.title {
+		text-decoration: none;
+		font-weight: 700;
 	}
 </style>
