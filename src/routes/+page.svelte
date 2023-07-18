@@ -9,41 +9,44 @@
 
 	const items: Item[] = [
 		{ title: 'Laskuri', url: '/laskuri', color: 'green' },
-		{ title: 'Blogi', url: '/blog', color: 'blue' },
-		{ title: 'Salkku', url: '/salkku', color: 'purple' }
+		{ title: 'Blogi', url: '/blog', color: 'blue' }
 	];
 </script>
 
 <div>
 	<Container>
-		<div class="grid">
+		<div class="menu-grid">
 			{#each items as item}
 				<a href={item.url} class={item.color}>{item.title}</a>
 			{/each}
 		</div>
 	</Container>
 	<Container>
-		<div class="grid">
-			{#each items as item}
-				<a href={item.url} class={item.color}>{item.title}</a>
-			{/each}
-		</div>
-	</Container>
-	<Container>
-		<div class="grid">
-			{#each items as item}
-				<a href={item.url} class={item.color}>{item.title}</a>
-			{/each}
+		<div class="blog-upsell">
+			<div class="header">
+				<p class="prefix" aria-describedby="blog-upsell-title">Pysy ajan tasalla.</p>
+				<h2 id="blog-upsell-title" class="title">Uusimmat artikkelit</h2>
+			</div>
+			<div class="posts">
+				<ul>
+					<li>
+						<article class="article">
+							<img src="brain.jpg" alt="" loading="lazy" width="410" height="550" />
+							<h3>Sijoittaja: oma mielesi juksaa sinua.</h3>
+							<p class="excerpt">
+								Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset
+								koemme...
+							</p>
+						</article>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</Container>
 </div>
 
 <style lang="scss">
-	.title {
-		text-align: right;
-	}
-
-	.grid {
+	.menu-grid {
 		display: grid;
 		grid-template-columns: 1fr;
 
@@ -68,6 +71,44 @@
 
 			.green {
 				border-color: green;
+			}
+		}
+	}
+
+	.blog-upsell {
+		.prefix {
+			margin: 0;
+		}
+
+		.title {
+			margin-top: 0.8rem;
+		}
+
+		.posts {
+			margin-top: 2rem;
+
+			ul {
+				list-style: none;
+				padding: 0;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			img {
+				width: 100%;
+				object-fit: cover;
+				border-radius: 8px;
+			}
+
+			h3 {
+				font-weight: 500;
+				margin-top: 1.8rem;
+				margin-bottom: 1.4rem;
+				font-size: 24px;
+			}
+
+			.excerpt {
+				margin-top: 0;
 			}
 		}
 	}

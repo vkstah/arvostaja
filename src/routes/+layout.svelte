@@ -7,28 +7,61 @@
 </svelte:head>
 
 <div>
-	<header class="header">
+	<header class="site-header">
 		<a href="/" class="title">Arvostaja</a>
+		<nav class="navigation">
+			<ul>
+				<li>
+					<a href="/artikkelit">Artikkelit</a>
+				</li>
+				<li>
+					<a href="/laskuri">Laskuri</a>
+				</li>
+				<li>
+					<a href="/tietoa">Tietoa</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="settings">
+			<button>Toggle</button>
+		</div>
 	</header>
 	<slot />
 </div>
 
 <style lang="scss">
-	.header {
+	.site-header {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1520px;
 		display: flex;
-		justify-content: center;
-		padding: 0.5rem;
-		position: sticky;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: 1;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1.8rem;
 		background-color: var(--color-background-site);
-		box-shadow: 0 -6px 10px 5px rgba(0, 0, 0, 0.5);
 	}
 
 	.title {
 		text-decoration: none;
 		font-weight: 700;
+		font-size: 24px;
+	}
+
+	.navigation {
+		ul {
+			list-style: none;
+			display: flex;
+			gap: 2.6rem;
+		}
+
+		a {
+			text-decoration: none;
+			font-weight: 500;
+			color: var(--color-cadet-blue);
+
+			&:hover {
+				color: #5de2f9;
+			}
+		}
 	}
 </style>
