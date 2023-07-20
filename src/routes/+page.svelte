@@ -1,15 +1,37 @@
 <script lang="ts">
 	import Container from '$lib/components/Container/Container.svelte';
+	import Card from './Card.svelte';
 
 	type Item = {
 		title: string;
+		description: string;
 		url: string;
 		color: 'green' | 'blue' | 'purple';
+		icon: string;
 	};
 
 	const items: Item[] = [
-		{ title: 'Korkoa korolle -laskuri', url: '/laskuri', color: 'blue' },
-		{ title: 'Blogi', url: '/blog', color: 'purple' }
+		{
+			title: 'Korkoa korolle -laskuri',
+			description: 'Laske maailman kahdeksannen ihmeen sijoituksillesi tuottama voitto.',
+			url: '/laskuri',
+			color: 'blue',
+			icon: 'trend'
+		},
+		{
+			title: 'Artikkelit',
+			description: 'Tutustu sivutoimisen sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
+			url: '/artikkelit',
+			color: 'purple',
+			icon: 'pen'
+		},
+		{
+			title: 'Artikkelit',
+			description: 'Tutustu sivutoimisen sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
+			url: '/artikkelit',
+			color: 'green',
+			icon: 'pen'
+		}
 	];
 </script>
 
@@ -17,9 +39,13 @@
 	<Container>
 		<div class="menu-grid">
 			{#each items as item}
-				<a href={item.url} class={item.color}>
-					<h2 class="title">{item.title}</h2>
-				</a>
+				<Card
+					title={item.title}
+					description={item.description}
+					url={item.url}
+					color={item.color}
+					icon={item.icon}
+				/>
 			{/each}
 		</div>
 	</Container>
@@ -37,8 +63,8 @@
 								<img src="brain.jpg" alt="" loading="lazy" width="400" height="520" />
 								<h3>Hei sijoittaja, oma mielesi juksaa sinua</h3>
 								<p class="excerpt">
-									Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset
-									koemme...
+									Ankkurointivinouma on yksi useimmista kognitiivisista vinoumista, joita ihmiset
+									kokevat...
 								</p>
 							</article>
 						</a>
@@ -65,47 +91,10 @@
 	.menu-grid {
 		display: grid;
 		grid-template-columns: 1fr;
+		gap: 3.8rem;
 
 		@media (min-width: 1000px) {
 			grid-template-columns: repeat(3, 1fr);
-			column-gap: 3.8rem;
-		}
-
-		a {
-			text-decoration: none;
-			display: block;
-			padding-left: 2.4rem;
-			padding-bottom: 2.2rem;
-			height: 320px;
-			font-weight: 500;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			border-radius: 8px;
-			position: relative;
-
-			&.purple {
-				background-color: #4338ca;
-			}
-
-			&.blue {
-				background-color: #164fc9;
-			}
-
-			&.green {
-				background-color: #16a34a;
-			}
-		}
-
-		h2 {
-			margin: 0;
-			font-size: 24px;
-		}
-
-		.icon {
-			position: absolute;
-			bottom: 0;
-			right: 0;
 		}
 	}
 
@@ -125,24 +114,24 @@
 				list-style: none;
 				padding: 0;
 				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				column-gap: 3.8rem;
+				grid-template-columns: 1fr;
+				gap: 3.8rem;
+
+				@media (min-width: 1000px) {
+					grid-template-columns: repeat(3, 1fr);
+				}
 			}
 
 			a {
 				text-decoration: none;
 				color: var(--color-paragraph);
+				outline: none;
 
-				img {
-					outline: 2px solid transparent;
-					outline-offset: 0px;
-					transition: all 0.2s;
-				}
-
-				&:hover {
+				&:hover,
+				&:focus {
 					img {
 						outline: 2px solid var(--color-white);
-						outline-offset: 6px;
+						outline-offset: 8px;
 					}
 				}
 			}
@@ -151,6 +140,9 @@
 				width: 100%;
 				object-fit: cover;
 				border-radius: 8px;
+				outline: 2px solid transparent;
+				outline-offset: 0px;
+				transition: all 0.2s;
 			}
 
 			h3 {
