@@ -33,8 +33,8 @@
 				<ul>
 					<li>
 						<a href="#">
-							<article class="article">
-								<img src="brain.jpg" alt="" loading="lazy" width="410" height="520" />
+							<article>
+								<img src="brain.jpg" alt="" loading="lazy" width="400" height="520" />
 								<h3>Hei sijoittaja, oma mielesi juksaa sinua</h3>
 								<p class="excerpt">
 									Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset
@@ -45,8 +45,8 @@
 					</li>
 					<li>
 						<a href="#">
-							<article class="article">
-								<img src="excavator.jpg" alt="" loading="lazy" width="410" height="520" />
+							<article>
+								<img src="excavator.jpg" alt="" loading="lazy" width="400" height="520" />
 								<h3>Rakennusyhtiöt kovan paineen alla</h3>
 								<p class="excerpt">
 									Konkurssien määrä on alkuvuonna kääntynyt jyrkkään kasvuun. Suomen Asiakastiedon
@@ -68,7 +68,7 @@
 
 		@media (min-width: 1000px) {
 			grid-template-columns: repeat(3, 1fr);
-			gap: 3.4rem;
+			column-gap: 3.8rem;
 		}
 
 		a {
@@ -99,7 +99,7 @@
 
 		h2 {
 			margin: 0;
-			font-size: 26px;
+			font-size: 24px;
 		}
 
 		.icon {
