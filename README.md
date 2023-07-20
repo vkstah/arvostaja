@@ -17,10 +17,10 @@ Silence is golden.
 Once you have cloned or forked the project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-$ npm run dev
+npm run dev
 
 # or start the server and open the app in a new browser tab
-$ npm run dev -- --open
+npm run dev -- --open
 ```
 
 ## Building
@@ -28,5 +28,5 @@ $ npm run dev -- --open
 To create a production version this applcation:
 
 ```bash
-$ npm run build
+npm run build
 ```
