@@ -20,14 +20,14 @@
 		},
 		{
 			title: 'Artikkelit',
-			description: 'Tutustu sivutoimisen sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
+			description: 'Tutustu sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
 			url: '/artikkelit',
 			color: 'purple',
 			icon: 'pen'
 		},
 		{
 			title: 'Artikkelit',
-			description: 'Tutustu sivutoimisen sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
+			description: 'Tutustu sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
 			url: '/artikkelit',
 			color: 'green',
 			icon: 'pen'
