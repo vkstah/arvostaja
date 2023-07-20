@@ -8,8 +8,8 @@
 	};
 
 	const items: Item[] = [
-		{ title: 'Laskuri', url: '/laskuri', color: 'green' },
-		{ title: 'Blogi', url: '/blog', color: 'blue' }
+		{ title: 'Korkoa korolle -laskuri', url: '/laskuri', color: 'blue' },
+		{ title: 'Blogi', url: '/blog', color: 'purple' }
 	];
 </script>
 
@@ -17,27 +17,43 @@
 	<Container>
 		<div class="menu-grid">
 			{#each items as item}
-				<a href={item.url} class={item.color}>{item.title}</a>
+				<a href={item.url} class={item.color}>
+					<h2 class="title">{item.title}</h2>
+				</a>
 			{/each}
 		</div>
 	</Container>
 	<Container>
 		<div class="blog-upsell">
 			<div class="header">
-				<p class="prefix" aria-describedby="blog-upsell-title">Pysy ajan tasalla.</p>
-				<h2 id="blog-upsell-title" class="title">Uusimmat artikkelit</h2>
+				<p class="prefix" aria-describedby="blog-upsell-title">Uusinta jorinaa.</p>
+				<h2 id="blog-upsell-title" class="title">Uusimmat artikkelit ja jutut</h2>
 			</div>
 			<div class="posts">
 				<ul>
 					<li>
-						<article class="article">
-							<img src="brain.jpg" alt="" loading="lazy" width="410" height="550" />
-							<h3>Sijoittaja: oma mielesi juksaa sinua.</h3>
-							<p class="excerpt">
-								Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset
-								koemme...
-							</p>
-						</article>
+						<a href="#">
+							<article class="article">
+								<img src="brain.jpg" alt="" loading="lazy" width="410" height="520" />
+								<h3>Hei sijoittaja, oma mielesi juksaa sinua</h3>
+								<p class="excerpt">
+									Ankkurointivinouma on yksi monista kognitiivisista vinoumista, joita me ihmiset
+									koemme...
+								</p>
+							</article>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<article class="article">
+								<img src="excavator.jpg" alt="" loading="lazy" width="410" height="520" />
+								<h3>Rakennusyhtiöt kovan paineen alla</h3>
+								<p class="excerpt">
+									Konkurssien määrä on alkuvuonna kääntynyt jyrkkään kasvuun. Suomen Asiakastiedon
+									tilaston mukaan...
+								</p>
+							</article>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -58,20 +74,38 @@
 		a {
 			text-decoration: none;
 			display: block;
-			border: 1px solid;
-			border-radius: 4px;
-			padding-left: 2rem;
-			padding-bottom: 1.4rem;
+			padding-left: 2.4rem;
+			padding-bottom: 2.2rem;
 			height: 320px;
-			font-size: 32px;
 			font-weight: 500;
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
+			border-radius: 8px;
+			position: relative;
 
-			.green {
-				border-color: green;
+			&.purple {
+				background-color: #4338ca;
 			}
+
+			&.blue {
+				background-color: #164fc9;
+			}
+
+			&.green {
+				background-color: #16a34a;
+			}
+		}
+
+		h2 {
+			margin: 0;
+			font-size: 26px;
+		}
+
+		.icon {
+			position: absolute;
+			bottom: 0;
+			right: 0;
 		}
 	}
 
@@ -92,6 +126,25 @@
 				padding: 0;
 				display: grid;
 				grid-template-columns: repeat(3, 1fr);
+				column-gap: 3.8rem;
+			}
+
+			a {
+				text-decoration: none;
+				color: var(--color-paragraph);
+
+				img {
+					outline: 2px solid transparent;
+					outline-offset: 0px;
+					transition: all 0.2s;
+				}
+
+				&:hover {
+					img {
+						outline: 2px solid var(--color-white);
+						outline-offset: 6px;
+					}
+				}
 			}
 
 			img {
