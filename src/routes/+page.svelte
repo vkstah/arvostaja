@@ -24,13 +24,6 @@
 			url: '/artikkelit',
 			color: 'purple',
 			icon: 'pen'
-		},
-		{
-			title: 'Artikkelit',
-			description: 'Tutustu sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
-			url: '/artikkelit',
-			color: 'green',
-			icon: 'pen'
 		}
 	];
 </script>
