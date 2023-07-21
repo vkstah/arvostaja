@@ -4,6 +4,7 @@
 
 	let startAmount: number = 2000;
 	let savingTime: number = 10;
+	let recurringAmount: number = 0;
 	let profitPerYearPercentage: number = 8;
 </script>
 
@@ -31,6 +32,17 @@
 		/>
 	</div>
 	<div>
+		<label for="recurring-amount">Säännöllinen sijoitus (€ / kk)</label>
+		<input
+			id="recurring-amount"
+			type="number"
+			bind:value={recurringAmount}
+			placeholder="0"
+			min="0"
+			step="1"
+		/>
+	</div>
+	<div>
 		<label for="profit-per-year-percentage">Tuotto / vuosi (%)</label>
 		<input
 			id="profit-per-year-percentage"
@@ -42,13 +54,12 @@
 		/>
 	</div>
 	<div class="container-chart">
-		<Chart {startAmount} {savingTime} {profitPerYearPercentage} />
+		<Chart {startAmount} {savingTime} {recurringAmount} {profitPerYearPercentage} />
 	</div>
 </Container>
 
 <style lang="scss">
 	.container-chart {
-		max-width: 1000px;
 		margin-left: auto;
 		margin-right: auto;
 	}
