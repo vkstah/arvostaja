@@ -89,7 +89,8 @@
 					}
 				},
 				interaction: {
-					mode: 'index'
+					mode: 'index',
+					intersect: false
 				},
 				plugins: {
 					tooltip: {
