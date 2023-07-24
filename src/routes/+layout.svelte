@@ -48,6 +48,12 @@
 	}
 
 	.navigation {
+		display: none;
+
+		@media (min-width: 1000px) {
+			display: block;
+		}
+
 		ul {
 			list-style: none;
 			display: flex;

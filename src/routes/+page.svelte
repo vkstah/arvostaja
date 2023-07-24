@@ -2,7 +2,7 @@
 	import Container from '$lib/components/container/Container.svelte';
 	import Card from './Card.svelte';
 
-	type Item = {
+	type Card = {
 		title: string;
 		description: string;
 		url: string;
@@ -10,7 +10,15 @@
 		icon: string;
 	};
 
-	const items: Item[] = [
+	type Article = {
+		title: string;
+		excerpt: string;
+		image: string;
+		url: string;
+		timestamp: string;
+	};
+
+	const cards: Card[] = [
 		{
 			title: 'Korkoa korolle -laskuri',
 			description: 'Laske maailman kahdeksannen ihmeen sijoituksillesi tuottama voitto.',
@@ -26,18 +34,37 @@
 			icon: 'pen'
 		}
 	];
+
+	const articles: Article[] = [
+		{
+			title: 'Hei sijoittaja, oma mielesi juksaa sinua',
+			excerpt:
+				'Ankkurointivinouma on yksi useimmista kognitiivisista vinoumista, joita ihmiset kokevat...',
+			image: 'brain.jpg',
+			url: '#',
+			timestamp: '2023-07-22T18:58:45Z'
+		},
+		{
+			title: 'Rakennusyhtiöt kovan paineen alla',
+			excerpt:
+				'Konkurssien määrä on alkuvuonna kääntynyt jyrkkään kasvuun. Suomen Asiakastiedon tilaston mukaan...',
+			image: 'excavator.jpg',
+			url: '#',
+			timestamp: '2023-07-22T18:58:45Z'
+		}
+	];
 </script>
 
 <div>
 	<Container>
 		<div class="menu-grid">
-			{#each items as item}
+			{#each cards as card}
 				<Card
-					title={item.title}
-					description={item.description}
-					url={item.url}
-					color={item.color}
-					icon={item.icon}
+					title={card.title}
+					description={card.description}
+					url={card.url}
+					color={card.color}
+					icon={card.icon}
 				/>
 			{/each}
 		</div>
@@ -53,7 +80,8 @@
 					<li>
 						<a href="#">
 							<article>
-								<img src="brain.jpg" alt="" loading="lazy" width="400" height="520" />
+								<img src="brain.jpg" alt="" loading="lazy" width="345" height="520" />
+								<p class="date">22. heinäkuuta, 2023</p>
 								<h3>Hei sijoittaja, oma mielesi juksaa sinua</h3>
 								<p class="excerpt">
 									Ankkurointivinouma on yksi useimmista kognitiivisista vinoumista, joita ihmiset
@@ -65,7 +93,8 @@
 					<li>
 						<a href="#">
 							<article>
-								<img src="excavator.jpg" alt="" loading="lazy" width="400" height="520" />
+								<img src="excavator.jpg" alt="" loading="lazy" width="345" height="520" />
+								<p class="date">22. heinäkuuta, 2023</p>
 								<h3>Rakennusyhtiöt kovan paineen alla</h3>
 								<p class="excerpt">
 									Konkurssien määrä on alkuvuonna kääntynyt jyrkkään kasvuun. Suomen Asiakastiedon
@@ -138,9 +167,14 @@
 				transition: all 0.2s;
 			}
 
+			.date {
+				margin-top: 1.8rem;
+				margin-bottom: 0;
+			}
+
 			h3 {
 				font-weight: 500;
-				margin-top: 1.8rem;
+				margin-top: 0.8rem;
 				margin-bottom: 1.4rem;
 				font-size: 24px;
 			}
