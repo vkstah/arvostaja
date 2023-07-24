@@ -1,38 +1,17 @@
 <script lang="ts">
+	import type { YearlyResult } from '$lib/types';
 	import { separateThousands } from '$lib/utils/utils';
 	import Chart, { type ChartItem } from 'chart.js/auto';
 	import { onMount } from 'svelte';
 
-	type Year = {
-		year: number;
-		totalAmount: number;
-		generatedAmount: number;
-	};
-
-	export let startAmount: number;
-	export let savingTime: number;
-	export let recurringAmount: number;
-	export let profitPerYearPercentage: number;
+	export let data: YearlyResult[];
+	let startAmount = data[0].totalAmount;
 
 	let chart: Chart;
 	let canvas: ChartItem;
-	let data: Year[] = [];
 
 	$: {
-		const profitPercentage = profitPerYearPercentage / 100;
-		data = [];
-		for (let year = 0; year <= savingTime; year++) {
-			const totalCompoundedAmount = startAmount * Math.pow(1 + profitPercentage, year);
-
-			// Calculate the generated amount for this year
-			const generatedAmount = totalCompoundedAmount - startAmount;
-
-			// Round the result to the nearest integer
-			const roundedAmount = Math.round((totalCompoundedAmount * 100) / 100);
-			const roundedGeneratedAmount = Math.round((generatedAmount * 100) / 100);
-
-			data.push({ year, totalAmount: roundedAmount, generatedAmount: roundedGeneratedAmount });
-		}
+		startAmount = data[0].totalAmount;
 	}
 
 	$: if (chart) {

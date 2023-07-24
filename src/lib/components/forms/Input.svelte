@@ -26,7 +26,7 @@
 		{...{ type }}
 	/>
 	{#if unit}
-		<span class="unit">{unit}</span>
+		<div class="unit">{unit}</div>
 	{/if}
 </div>
 
@@ -37,7 +37,9 @@
 	.wrapper {
 		background-color: #26272e;
 		border-radius: 6px;
-		display: inline-block;
+		display: inline-flex;
+		justify-content: space-between;
+		width: 100%;
 	}
 
 	input {
@@ -47,8 +49,26 @@
 		font-weight: var(--font-weight-medium);
 		outline: none;
 		padding-left: $padding-horizontal;
+		padding-right: $padding-horizontal;
 		padding-top: $padding-vertical;
 		padding-bottom: $padding-vertical;
+		width: 100%;
+	}
+
+	.unit {
+		align-items: center;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		display: flex;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 100px;
+		background-color: #1a1b22;
+		opacity: 0.5;
+
+		&::selection {
+			background-color: transparent;
+		}
 	}
 
 	/* Remove arrows / spinners */

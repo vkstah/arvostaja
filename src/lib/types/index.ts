@@ -1,8 +1,3 @@
-export type Data = {
-	label: string | number;
-	data: string | number;
-};
-
 export type InputType =
 	| 'color'
 	| 'date'
@@ -22,3 +17,9 @@ export type InputType =
 	| 'url'
 	| 'week'
 	| 'search';
+
+export type YearlyResult = {
+	year: number;
+	totalAmount: number;
+	generatedAmount: number;
+};

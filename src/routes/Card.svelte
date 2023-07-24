@@ -20,13 +20,17 @@
 	a {
 		display: block;
 		text-decoration: none;
-		padding: 2.4rem;
+		padding: 2rem;
 		height: 340px;
 		border-radius: 8px;
 		position: relative;
 		outline: 2px solid transparent;
 		outline-offset: 0px;
 		transition: all 0.2s;
+
+		@media (min-width: 1000px) {
+			padding: 2.4rem;
+		}
 
 		&:hover {
 			outline-offset: 8px;
@@ -53,7 +57,7 @@
 		}
 
 		&.green {
-			background-color: #16a34a;
+			background-color: #12602e;
 		}
 	}
 
