@@ -36,8 +36,6 @@
 		investedAmount = startAmount;
 		lastYear = yearlyResults.at(-1);
 	}
-
-	console.log(calculateTotalCompoundedValue(1000, 1, 10, 10));
 </script>
 
 <Container>
@@ -125,9 +123,13 @@
 <style lang="scss">
 	.inputs {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr;
 		column-gap: 4rem;
 		row-gap: 1.6rem;
+
+		@media (min-width: 700px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	.results {
