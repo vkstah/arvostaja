@@ -4,11 +4,10 @@ Arvostaja is a web application that consists of investing related tools and feat
 
 ## Features
 
-Silence is golden.
+- Compound interest calculator with visual graph of growth
 
 ## Todo
 
-- Compound interest calculator with visual graph of growth
 - Blog with articles composed in Markdown / .md files
 - Simple DCF calculator
 
