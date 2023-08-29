@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Container from '$lib/components/container/Container.svelte';
+	import Container from '$lib/components/containers/Container.svelte';
 </script>
 
 <Container>Tietoa</Container>

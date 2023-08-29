@@ -1,8 +1,13 @@
 <script lang="ts">
-	import Container from '$lib/components/container/Container.svelte';
+	import { articles } from '$lib/articles';
+	import { Container, Articles } from '$lib/components';
 </script>
 
 <Container>Artikkelit</Container>
+
+<Container>
+	<Articles {articles} />
+</Container>
 
 <style lang="scss">
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/components/icon/Icon.svelte';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
 	export let title: string;
 	export let description: string;
@@ -32,7 +32,8 @@
 			padding: 2.4rem;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			outline-offset: 8px;
 
 			&.purple {

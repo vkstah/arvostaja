@@ -1,20 +1,21 @@
 <script lang="ts">
-	import type { InputType } from '$lib/types';
-
-	export let type: InputType = 'text';
 	export let value: any = undefined;
 	export let unit: string = '';
+
+	let isFocused = false;
+	const onFocus = () => (isFocused = true);
+	const onBlur = () => (isFocused = false);
 </script>
 
-<div class="wrapper">
+<div class={isFocused ? 'wrapper focused' : 'wrapper'}>
 	<input
 		{...$$restProps}
 		bind:value
-		on:blur
+		on:blur={onBlur}
 		on:change
 		on:click
 		on:contextmenu
-		on:focus
+		on:focus={onFocus}
 		on:keydown
 		on:keypress
 		on:keyup
@@ -23,7 +24,7 @@
 		on:mouseleave
 		on:paste
 		on:input
-		{...{ type }}
+		type="number"
 	/>
 	{#if unit}
 		<div class="unit">{unit}</div>
@@ -40,6 +41,13 @@
 		display: inline-flex;
 		justify-content: space-between;
 		width: 100%;
+		outline: 2px solid transparent;
+		outline-offset: 0px;
+		transition: all 0.2s;
+
+		&.focused {
+			outline: 2px solid rgb(125, 125, 125);
+		}
 	}
 
 	input {
@@ -65,10 +73,6 @@
 		width: 100px;
 		background-color: #1a1b22;
 		opacity: 0.5;
-
-		&::selection {
-			background-color: transparent;
-		}
 	}
 
 	/* Remove arrows / spinners */

@@ -18,8 +18,16 @@ export type InputType =
 	| 'week'
 	| 'search';
 
-export type YearlyResult = {
-	year: number;
+export type Period = {
+	investedAmount: number;
 	totalAmount: number;
 	generatedAmount: number;
+};
+
+export type Article = {
+	title: string;
+	url: string;
+	datetime: string;
+	thumbnail: string;
+	excerpt?: string;
 };
