@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import type { Article } from '$lib/types';
-	import dayjs from 'dayjs';
-
+	import { formatDate } from '$lib/utils';
 	export let articles: Article[];
 </script>
 
@@ -14,13 +13,13 @@
 					<article>
 						<img
 							class="image"
-							src={article.thumbnail}
+							src={`${$page.url.origin}/${article.thumbnail}`}
 							alt=""
 							loading="lazy"
 							width="345"
 							height="520"
 						/>
-						<p class="date">22. heinäkuuta, 2023</p>
+						<p class="date">{formatDate(article.date)}</p>
 						<h3 class="title">{article.title}</h3>
 						<p class="excerpt">
 							{article.excerpt}

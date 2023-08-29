@@ -1,3 +1,6 @@
+import dayjs from 'dayjs';
+import 'dayjs/locale/fi';
+
 export const separateThousands = (num: number | string): string => {
 	// Convert the number to a string
 	const numStr = num.toString();
@@ -43,3 +46,13 @@ export const calculateCompoundedAmount = (
 
 	return periods;
 };
+
+export function formatDate(date: string) {
+	const dayjsObject = dayjs(date).locale('fi');
+	if (!dayjsObject) throw new Error('Failed to instantiate a proper dayjs object');
+	/**
+	 * Format: 22. heinäkuuta, 2023
+	 * Use square brackets to escape certain characters
+	 */
+	return dayjsObject.format('D. MMMM[ta], YYYY');
+}

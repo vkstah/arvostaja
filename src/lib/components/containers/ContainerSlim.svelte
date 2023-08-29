@@ -1,4 +1,4 @@
-<div class="container-slim">
+<div class={`container-slim ${$$props.class}`}>
 	<slot />
 </div>
 
