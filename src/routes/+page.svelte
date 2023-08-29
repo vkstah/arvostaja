@@ -2,7 +2,6 @@
 	import Container from '$lib/components/containers/Container.svelte';
 	import Articles from '$lib/components/articles/Articles.svelte';
 	import Card from './Card.svelte';
-	import { articles } from '$lib/articles';
 
 	type Card = {
 		title: string;
@@ -12,6 +11,8 @@
 		icon: string;
 	};
 
+	export let data;
+	const articles = data.articles;
 	const cards: Card[] = [
 		{
 			title: 'Korkoa korolle -laskuri',

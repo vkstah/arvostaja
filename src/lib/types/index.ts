@@ -26,8 +26,10 @@ export type Period = {
 
 export type Article = {
 	title: string;
+	published: boolean;
+	slug: string;
 	url: string;
-	datetime: string;
+	date: string;
 	thumbnail: string;
 	excerpt?: string;
 };

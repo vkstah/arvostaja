@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import type { Article } from '$lib/types';
 	import dayjs from 'dayjs';
 
@@ -9,7 +10,7 @@
 	<ul>
 		{#each articles as article}
 			<li>
-				<a href={article.url}>
+				<a href={`${$page.url.origin}/artikkelit/${article.slug}`}>
 					<article>
 						<img
 							class="image"

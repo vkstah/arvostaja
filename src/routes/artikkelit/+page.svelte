@@ -1,9 +1,14 @@
 <script lang="ts">
-	import { articles } from '$lib/articles';
 	import { Container, Articles } from '$lib/components';
+
+	export let data;
+	const articles = data.articles;
 </script>
 
-<Container>Artikkelit</Container>
+<Container>
+	<h1>Artikkelit</h1>
+	<p>Sijoitusaiheisia juttuja.</p>
+</Container>
 
 <Container>
 	<Articles {articles} />
