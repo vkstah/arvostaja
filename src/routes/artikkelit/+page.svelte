@@ -5,6 +5,10 @@
 	const articles = data.articles;
 </script>
 
+<svelte:head>
+	<title>Artikkelit - Arvostaja</title>
+</svelte:head>
+
 <Container>
 	<h1>Artikkelit</h1>
 	<p>Sijoitusaiheisia juttuja.</p>

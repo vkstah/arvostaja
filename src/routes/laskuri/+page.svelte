@@ -21,6 +21,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Korkoa korolle -laskuri - Arvostaja</title>
+</svelte:head>
+
 <Container>
 	<h1>Korkoa korolle -laskuri</h1>
 	<p>

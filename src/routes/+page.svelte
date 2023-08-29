@@ -31,6 +31,10 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Arvostaja - Sijoittajan jorinaa</title>
+</svelte:head>
+
 <Container>
 	<div class="menu-grid">
 		{#each cards as card}

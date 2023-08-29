@@ -2,10 +2,6 @@
 	import '../app.scss';
 </script>
 
-<svelte:head>
-	<title>Arvostaja</title>
-</svelte:head>
-
 <div>
 	<header class="site-header">
 		<a href="/" class="title">Arvostaja</a>
