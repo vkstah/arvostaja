@@ -1,5 +1,6 @@
 // articles
 export { default as Articles } from './articles/Articles.svelte';
+export { default as Highlight } from './articles/Highlight.svelte';
 
 // buttons
 export { default as Button } from './buttons/Button.svelte';

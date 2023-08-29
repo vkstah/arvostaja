@@ -75,9 +75,14 @@
 
 	.title {
 		margin-bottom: 0;
+		font-size: 28px;
+
+		@media (min-width: 800px) {
+			font-size: 36px;
+		}
 	}
 
 	.date-read-time {
-		margin-top: 0;
+		margin-top: 0.8rem;
 	}
 </style>
