@@ -5,10 +5,10 @@ Arvostaja is a web application that consists of investing related tools and feat
 ## Features
 
 - Compound interest calculator with visual graph of growth
+- Articles created and maintained with Markdown files
 
 ## Todo
 
-- Blog with articles composed in Markdown / .md files
 - Simple DCF calculator
 
 ## Developing
@@ -28,4 +28,12 @@ To create a production version this applcation:
 
 ```bash
 npm run build
+```
+
+## Environment Variables
+
+There are some environment variables that you need to define in `.env`. You can find an example `.env.example` in the project root.
+
+```bash
+VITE_PUBLIC_CLOUDINARY_CLOUD_NAME=""
 ```
