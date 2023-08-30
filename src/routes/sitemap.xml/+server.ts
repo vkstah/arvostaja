@@ -1,4 +1,5 @@
 import type { Article } from '$lib/types';
+import dayjs from 'dayjs';
 
 type Page = {
 	title: string;
@@ -41,7 +42,7 @@ export async function GET({ fetch }) {
 					(article) => `
 			<url>
 				<loc>${site}/artikkelit/${article.slug}</loc>
-				<lastmod>${article.dateLastUpdated}</lastmod>
+				<lastmod>${dayjs(article.dateLastUpdated).format('YYYY-MM-DD')}</lastmod>
 			</url>
 			`
 				)
