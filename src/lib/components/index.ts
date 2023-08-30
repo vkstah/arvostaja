@@ -7,6 +7,7 @@ export { default as Button } from './buttons/Button.svelte';
 
 // containers
 export { default as Container } from './containers/Container.svelte';
+export { default as ContainerMedium } from './containers/ContainerMedium.svelte';
 export { default as ContainerSlim } from './containers/ContainerSlim.svelte';
 
 // forms

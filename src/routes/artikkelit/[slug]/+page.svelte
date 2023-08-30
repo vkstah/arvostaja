@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { Container, ContainerSlim } from '$lib/components';
+	import ContainerMedium from '$lib/components/containers/ContainerMedium.svelte';
 	import { formatDate } from '$lib/utils';
-	export let data;
+	import { CldImage } from 'svelte-cloudinary';
 
+	export let data;
 	const title = data.meta.title;
-	const thumbnail = data.meta.thumbnail;
 	const date = formatDate(data.meta.date);
 </script>
 
@@ -40,7 +41,13 @@
 		</div>
 	</ContainerSlim>
 	<Container class="container-thumbnail">
-		<img class="thumbnail" src={`${$page.url.origin}/${thumbnail}`} alt="" />
+		<CldImage
+			class="thumbnail"
+			src={data.meta.thumbnailCloudinaryId}
+			alt=""
+			width="1300"
+			height="740"
+		/>
 	</Container>
 	<ContainerSlim>
 		<div class="content">
@@ -55,7 +62,7 @@
 		padding-bottom: 0;
 	}
 
-	.thumbnail {
+	* :global(.thumbnail) {
 		max-height: 600px;
 		width: 100%;
 		object-fit: cover;

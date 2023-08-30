@@ -30,6 +30,6 @@ export type Article = {
 	slug: string;
 	url: string;
 	date: string;
-	thumbnail: string;
+	thumbnailCloudinaryId: string;
 	excerpt?: string;
 };

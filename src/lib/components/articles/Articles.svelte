@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import type { Article } from '$lib/types';
 	import { formatDate } from '$lib/utils';
+	import { CldImage } from 'svelte-cloudinary';
+
 	export let articles: Article[];
 </script>
 
@@ -11,13 +13,13 @@
 			<li>
 				<a href={`${$page.url.origin}/artikkelit/${article.slug}`}>
 					<article>
-						<img
+						<CldImage
 							class="image"
-							src={`${$page.url.origin}/${article.thumbnail}`}
+							src={article.thumbnailCloudinaryId}
 							alt=""
 							loading="lazy"
-							width="345"
-							height="520"
+							width="950"
+							height="750"
 						/>
 						<p class="date">{formatDate(article.date)}</p>
 						<h3 class="title">{article.title}</h3>
@@ -54,15 +56,16 @@
 
 			&:hover,
 			&:focus {
-				img {
+				* :global(.image) {
 					outline: 2px solid var(--color-white);
 					outline-offset: 8px;
 				}
 			}
 		}
 
-		.image {
+		* :global(.image) {
 			width: 100%;
+			height: 520px;
 			object-fit: cover;
 			border-radius: 8px;
 			outline: 2px solid transparent;
