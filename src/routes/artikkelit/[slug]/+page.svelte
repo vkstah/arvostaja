@@ -17,7 +17,7 @@
 </svelte:head>
 
 <article>
-	<ContainerSlim class="header">
+	<ContainerSlim class="container-header">
 		<div class="additional">
 			<a class="back" href={`${$page.url.origin}/artikkelit`}
 				><svg
@@ -48,7 +48,7 @@
 			height="740"
 		/>
 	</Container>
-	<ContainerSlim>
+	<ContainerSlim class="container-content">
 		<div class="content">
 			<svelte:component this={data.content} />
 		</div>
