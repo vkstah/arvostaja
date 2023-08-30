@@ -21,7 +21,7 @@
 							width="950"
 							height="750"
 						/>
-						<p class="date">{formatDate(article.date)}</p>
+						<p class="date">{formatDate(article.datePublished)}</p>
 						<h3 class="title">{article.title}</h3>
 						<p class="excerpt">
 							{article.excerpt}

@@ -29,7 +29,8 @@ export type Article = {
 	published: boolean;
 	slug: string;
 	url: string;
-	date: string;
+	datePublished: string;
 	thumbnailCloudinaryId: string;
 	excerpt?: string;
+	dateLastUpdated: string;
 };

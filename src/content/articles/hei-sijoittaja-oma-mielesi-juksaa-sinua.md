@@ -1,7 +1,8 @@
 ---
 title: Hei sijoittaja, oma mielesi juksaa sinua
 excerpt: Ankkurointivinouma on yksi useimmista kognitiivisista vinoumista, joita ihmiset kokevat...
-date: '2023-8-29'
+datePublished: '2023-8-29'
+dateLastUpdated: '2023-8-29'
 published: true
 thumbnailCloudinaryId: brain_brsjzp
 slug: hei-sijoittaja-oma-mielesi-juksaa-sinua

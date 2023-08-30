@@ -1,16 +1,20 @@
+import type { Article } from '$lib/types';
+
 type Page = {
 	title: string;
 	slug: string;
 	lastmod: string;
 };
 
-const site = 'https://arvostaja.fi';
-const pages: Page[] = [
-	{ title: 'Etusivu', slug: '', lastmod: '2023-08-29' },
-	{ title: 'Laskuri', slug: 'laskuri', lastmod: '2023-08-29' }
-];
+export async function GET({ fetch }) {
+	const site = 'https://arvostaja.fi';
+	const pages: Page[] = [
+		{ title: 'Etusivu', slug: '', lastmod: '2023-08-29' },
+		{ title: 'Laskuri', slug: 'laskuri', lastmod: '2023-08-29' }
+	];
+	const response = await fetch('api/articles');
+	const articles: Article[] = await response.json();
 
-export async function GET() {
 	return new Response(
 		`
     <?xml version="1.0" encoding="UTF-8" ?>
@@ -30,6 +34,16 @@ export async function GET() {
         <lastmod>${page.lastmod}</lastmod>
       </url>
       `
+				)
+				.join('')}
+			${articles
+				.map(
+					(article) => `
+			<url>
+				<loc>${site}/artikkelit/${article.slug}</loc>
+				<lastmod>${article.dateLastUpdated}</lastmod>
+			</url>
+			`
 				)
 				.join('')}
     </urlset>`.trim(),

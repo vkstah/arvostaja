@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { Container, ContainerSlim } from '$lib/components';
-	import ContainerMedium from '$lib/components/containers/ContainerMedium.svelte';
 	import { formatDate } from '$lib/utils';
 	import { CldImage } from 'svelte-cloudinary';
 
 	export let data;
 	const title = data.meta.title;
-	const date = formatDate(data.meta.date);
+	const date = formatDate(data.meta.datePublished);
 </script>
 
 <!-- SEO -->
