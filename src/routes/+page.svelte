@@ -7,7 +7,7 @@
 		title: string;
 		description: string;
 		url: string;
-		color: 'green' | 'blue' | 'purple';
+		color: string;
 		icon: string;
 	};
 
@@ -18,15 +18,22 @@
 			title: 'Korkoa korolle -laskuri',
 			description: 'Laske maailman kahdeksannen ihmeen sijoituksillesi tuottama voitto.',
 			url: '/laskuri',
-			color: 'blue',
+			color: '#1b55d2',
 			icon: 'trend'
 		},
 		{
 			title: 'Artikkelit',
 			description: 'Tutustu sijoittajan tajunnanvirtaan ja ajatuksiin maailmasta.',
 			url: '/artikkelit',
-			color: 'purple',
+			color: '#4338ca',
 			icon: 'pen'
+		},
+		{
+			title: 'Salkku',
+			description: 'Voit seurata salkkuni kehitystä reaaliaikaisesti.',
+			url: '/salkku',
+			color: '#6b21a8',
+			icon: 'briefcase2'
 		}
 	];
 </script>

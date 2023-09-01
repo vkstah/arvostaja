@@ -19,6 +19,16 @@ export const separateThousands = (num: number | string): string => {
 	return formattedNum;
 };
 
+/**
+ * Calculate compounded amount over a period of time using several adjustable parameters.
+ *
+ * @param initialInvestment
+ * @param annualInterestRate
+ * @param compoundFrequency
+ * @param yearsTotal
+ * @param monthlyContribution
+ * @returns
+ */
 export const calculateCompoundedAmount = (
 	initialInvestment: number,
 	annualInterestRate: number,
@@ -56,3 +66,15 @@ export function formatDate(date: string) {
 	 */
 	return dayjsObject.format('D. MMMM[ta], YYYY');
 }
+
+export const countWords = (str: string) => {
+	const words = str.split(' ');
+
+	let count = 0;
+	for (let i = 0; i < words.length; i++) {
+		if (words[i] !== '') {
+			count++;
+		}
+	}
+	return count;
+};

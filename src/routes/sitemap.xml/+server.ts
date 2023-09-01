@@ -11,7 +11,8 @@ export async function GET({ fetch }) {
 	const site = 'https://arvostaja.fi';
 	const pages: Page[] = [
 		{ title: 'Etusivu', slug: '', lastmod: '2023-08-29' },
-		{ title: 'Laskuri', slug: 'laskuri', lastmod: '2023-08-29' }
+		{ title: 'Laskuri', slug: 'laskuri', lastmod: '2023-08-29' },
+		{ title: 'Salkku', slug: 'salkku', lastmod: '2023-09-01' }
 	];
 	const response = await fetch('api/articles');
 	const articles: Article[] = await response.json();

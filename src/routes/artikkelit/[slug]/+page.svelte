@@ -7,6 +7,8 @@
 	export let data;
 	const title = data.meta.title;
 	const date = formatDate(data.meta.datePublished);
+	const readTimeMinutes = Math.round(data.meta.readingTime.minutes);
+	const readTimeText = readTimeMinutes === 1 ? 'minuutti' : 'minuuttia';
 </script>
 
 <!-- SEO -->
@@ -36,7 +38,7 @@
 		</div>
 		<div class="meta">
 			<h1 class="title">{title}</h1>
-			<p class="date-read-time">{date} – lukuaika 12 minuuttia</p>
+			<p class="date-read-time">{date} – lukuaika {readTimeMinutes} {readTimeText}</p>
 		</div>
 	</ContainerSlim>
 	<Container class="container-thumbnail">

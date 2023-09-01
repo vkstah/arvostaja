@@ -8,7 +8,7 @@
 	export let icon: string;
 </script>
 
-<a href={url} class={color}>
+<a href={url} class={color} style="color: {color}">
 	<div class="icon">
 		<Icon name={icon} width="32" height="32" />
 	</div>
@@ -17,6 +17,10 @@
 </a>
 
 <style lang="scss">
+	* :global(svg) {
+		color: white;
+	}
+
 	a {
 		display: block;
 		text-decoration: none;
@@ -27,6 +31,7 @@
 		outline: 2px solid transparent;
 		outline-offset: 0px;
 		transition: all 0.2s;
+		background-color: currentColor;
 
 		@media (min-width: 1000px) {
 			padding: 2.4rem;
@@ -35,30 +40,7 @@
 		&:hover,
 		&:focus {
 			outline-offset: 8px;
-
-			&.purple {
-				outline: 2px solid #4338ca;
-			}
-
-			&.blue {
-				outline: 2px solid #1b55d2;
-			}
-
-			&.green {
-				outline: 2px solid #16a34a;
-			}
-		}
-
-		&.purple {
-			background-color: #4338ca;
-		}
-
-		&.blue {
-			background-color: #1b55d2;
-		}
-
-		&.green {
-			background-color: #12602e;
+			outline: 2px solid currentColor;
 		}
 	}
 
@@ -85,5 +67,6 @@
 	p {
 		margin: 0;
 		opacity: 0.9;
+		color: white;
 	}
 </style>

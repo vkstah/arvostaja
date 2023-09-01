@@ -34,3 +34,11 @@ export type Article = {
 	excerpt?: string;
 	dateLastUpdated: string;
 };
+
+export type Stock = {
+	title: string;
+	weight: number;
+	profit: number;
+	acquisitionPrice: number;
+	color: string;
+};

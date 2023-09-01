@@ -14,7 +14,7 @@
 					<a href="/laskuri">Laskuri</a>
 				</li>
 				<li>
-					<a href="/tietoa">Tietoa</a>
+					<a href="/salkku">Salkku</a>
 				</li>
 			</ul>
 		</nav>
