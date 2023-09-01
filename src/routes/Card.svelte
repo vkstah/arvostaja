@@ -25,7 +25,7 @@
 		display: block;
 		text-decoration: none;
 		padding: 2rem;
-		height: 340px;
+		min-height: 300px;
 		border-radius: 8px;
 		position: relative;
 		outline: 2px solid transparent;
