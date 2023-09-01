@@ -47,11 +47,18 @@
 
 <svelte:head>
 	<title>Salkku - Arvostaja</title>
+	<meta
+		name="description"
+		content="Kurkista henkilökohtaiseen salkkuuni. Sijoitan yksinomaan laadukkaisiin vapaata kassavirtaa tuottaviin yhtiöihin, joiden tulevaisuus on mielestäni valoisa."
+	/>
 </svelte:head>
 
 <Container
 	><h1>Salkku</h1>
-	<p>Voit seurata salkkuni kehitystä tältä sivulta.</p>
+	<p>
+		Kurkista henkilökohtaiseen salkkuuni. Sijoitan yksinomaan laadukkaisiin vapaata kassavirtaa
+		tuottaviin yhtiöihin, joiden tulevaisuus on mielestäni valoisa.
+	</p>
 	<div class="cols cols-data">
 		<div class="col col-table">
 			<table>
