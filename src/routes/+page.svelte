@@ -33,6 +33,7 @@
 
 <svelte:head>
 	<title>Arvostaja - Sijoittajan jorinaa</title>
+	<meta name="description" content="Sijoittajan jorinaa" />
 </svelte:head>
 
 <Container>

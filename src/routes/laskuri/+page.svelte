@@ -23,6 +23,10 @@
 
 <svelte:head>
 	<title>Korkoa korolle -laskuri - Arvostaja</title>
+	<meta
+		name="description"
+		content="Näin paljon rahaa voit tuottaa itsellesi sijoittamalla. Laske oma tuottoarviosi korkoa korolle -laskurilla!"
+	/>
 </svelte:head>
 
 <Container>
