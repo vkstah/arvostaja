@@ -1,6 +1,11 @@
 import dayjs from 'dayjs';
 import 'dayjs/locale/fi';
 
+/**
+ * Separate thousands in a number. For example, input of 5000 will give you 5 000.
+ *
+ * @param num 			The number to apply the function to. Can be a string or a number.
+ */
 export const separateThousands = (num: number | string): string => {
 	// Convert the number to a string
 	const numStr = num.toString();
@@ -22,17 +27,16 @@ export const separateThousands = (num: number | string): string => {
 /**
  * Calculate compounded amount over a period of time using several adjustable parameters.
  *
- * @param initialInvestment
- * @param annualInterestRate
- * @param compoundFrequency
- * @param yearsTotal
- * @param monthlyContribution
- * @returns
+ * @param initialInvestment				Initial investment.
+ * @param annualInterestRate			Annual interest rate as an integer.
+ * @param compoundFrequency				Compound frequency, how often should we apply the compounding effect? Defaults to 12 (every month).
+ * @param yearsTotal							Total investment span in years.
+ * @param monthlyContribution			Amount contributed each month.
  */
 export const calculateCompoundedAmount = (
 	initialInvestment: number,
 	annualInterestRate: number,
-	compoundFrequency: number,
+	compoundFrequency = 12,
 	yearsTotal: number,
 	monthlyContribution: number
 ) => {
@@ -57,6 +61,11 @@ export const calculateCompoundedAmount = (
 	return periods;
 };
 
+/**
+ * Format a date for displayment.
+ *
+ * @see https://day.js.org/docs/en/display/format
+ */
 export function formatDate(date: string) {
 	const dayjsObject = dayjs(date).locale('fi');
 	if (!dayjsObject) throw new Error('Failed to instantiate a proper dayjs object');
