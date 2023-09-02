@@ -1,17 +1,52 @@
 <script lang="ts">
-	import Chart, { type ChartItem } from 'chart.js/auto';
+	import Chart, { type ChartItem, type ChartConfiguration } from 'chart.js/auto';
 	import { onMount } from 'svelte';
-	import ChartDataLabels from 'chartjs-plugin-datalabels';
 	import type { Stock } from '$lib/types';
 
 	export let data: Stock[];
+	export let selectedIndex: number | null;
 
+	let chart: Chart;
 	let canvas: ChartItem;
 	const idleColors = ['#1e293b', '#4b5563', '#27272a', '#3f3f46'];
-	let selected = data[0];
+
+	$: if (chart && chart.tooltip) {
+		if (selectedIndex != null) {
+			if (chart.getActiveElements().length > 0 && chart.tooltip.getActiveElements().length > 0) {
+				chart.setActiveElements([]);
+				chart.tooltip.setActiveElements([], { x: 0, y: 0 });
+			} else {
+				const chartArea = chart.chartArea;
+				chart.setActiveElements([
+					{
+						datasetIndex: 0,
+						index: selectedIndex
+					}
+				]);
+				chart.tooltip.setActiveElements(
+					[
+						{
+							datasetIndex: 0,
+							index: selectedIndex
+						}
+					],
+					{
+						x: (chartArea.left + chartArea.right) / 2,
+						y: (chartArea.top + chartArea.bottom) / 2
+					}
+				);
+			}
+		} else {
+			chart.setActiveElements([]);
+			chart.tooltip.setActiveElements([], { x: 0, y: 0 });
+		}
+
+		// Update the chart
+		chart.update();
+	}
 
 	onMount(async () => {
-		const chart = new Chart(canvas, {
+		const config: ChartConfiguration = {
 			type: 'doughnut',
 			data: {
 				labels: data.map((row) => row.title),
@@ -20,58 +55,41 @@
 						backgroundColor: data.map((row) => row.color),
 						borderColor: data.map((row) => '#171717'),
 						borderWidth: 10,
-						hoverBorderWidth: 4,
+						hoverOffset: 45,
 						data: data.map((row) => row.weight)
 					}
 				]
 			},
 			options: {
+				layout: {
+					padding: 12
+				},
 				plugins: {
 					legend: {
 						display: false
 					},
 					tooltip: {
-						enabled: false
-					},
-					datalabels: {
-						formatter: (value, ctx) => {
-							let sum = 0;
-							let dataArr = ctx.chart.data.datasets[0].data;
-							dataArr.forEach((data) => {
-								if (!data || typeof data !== 'number') {
-									sum += 0;
-								} else {
-									sum += data;
-								}
-							});
-							const result = (value * 100) / sum;
-
-							// Return empty string if the stake is smaller than a certain threshold.
-							const threshold = 10;
-							if (result < threshold) return '';
-							let percentage = result.toFixed(1).replace('.', ',') + ' %';
-							return percentage;
-						},
-						color: '#fff',
-						font: {
-							size: 15,
-							weight: 'bold',
-							family: 'Ubuntu'
+						callbacks: {
+							label: (tooltipItem) => {
+								const value = tooltipItem.parsed;
+								return `${value.toFixed(1).replace('.', ',')} %`;
+							}
 						}
 					}
 				},
 				onHover: (evt, chartElement) => {
 					// Bail if no element is hovered
-					if (!chartElement || chartElement.length === 0) return;
+					if (!chartElement || chartElement.length === 0) {
+						selectedIndex = null;
+						return;
+					}
 					const element = chartElement[0];
-					const stock = data[element.index];
-					if (selected === stock) return;
-					selected = stock;
+					selectedIndex = element.index;
 				}
-			},
-			plugins: [ChartDataLabels]
-		});
+			}
+		};
+		chart = new Chart(canvas, config);
 	});
 </script>
 
-<canvas id="acquisitions" bind:this={canvas} />
+<canvas bind:this={canvas} />

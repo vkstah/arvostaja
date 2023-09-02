@@ -87,4 +87,4 @@
 	});
 </script>
 
-<canvas id="acquisitions" bind:this={canvas} />
+<canvas bind:this={canvas} />

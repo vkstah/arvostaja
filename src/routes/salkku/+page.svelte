@@ -3,6 +3,8 @@
 	import type { Stock } from '$lib/types';
 	import Chart from './Chart.svelte';
 
+	let selectedIndex: number | null = null;
+
 	const data: Stock[] = [
 		{
 			title: 'Admicom Oyj',
@@ -71,8 +73,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					{#each data as row}
-						<tr style="border-left: 5px solid {row.color}">
+					{#each data as row, index}
+						<tr
+							style="border-left: 5px solid {row.color}"
+							on:mouseover={() => (selectedIndex = index)}
+							on:focus={() => (selectedIndex = index)}
+							on:mouseleave={() => (selectedIndex = null)}
+						>
 							<td>{row.title}</td>
 							<td>{row.acquisitionPrice.toFixed(2).replace('.', ',')} EUR</td>
 							<td class="profit" class:positive={row.profit >= 0} class:negative={row.profit < 0}
@@ -85,7 +92,7 @@
 			</table>
 		</div>
 		<div class="col col-chart">
-			<Chart {data} />
+			<Chart {data} {selectedIndex} />
 		</div>
 	</div>
 </Container>
@@ -96,13 +103,17 @@
 		row-gap: 3rem;
 
 		@media (min-width: 1000px) {
-			grid-template-columns: 2fr 1fr;
-			column-gap: 4rem;
+			grid-template-columns: 3fr 2fr;
+			column-gap: 3rem;
 		}
 	}
 
 	.col-table {
 		overflow-x: auto;
+	}
+
+	.col-chart {
+		align-self: center;
 	}
 
 	table {
@@ -114,7 +125,6 @@
 		th,
 		td {
 			padding: 12px 20px;
-			background-color: #202020;
 
 			@media (min-width: 600px) {
 				padding: 16px 24px;
@@ -130,6 +140,11 @@
 			border-top: 1px solid #3b3b3b;
 			border-bottom: 1px solid #3b3b3b;
 			border-right: 1px solid #3b3b3b;
+			background-color: #202020;
+
+			&:hover {
+				background-color: #3b3b3b;
+			}
 		}
 
 		td.profit {
