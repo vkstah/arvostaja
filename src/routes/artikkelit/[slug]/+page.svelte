@@ -93,4 +93,8 @@
 	.date-read-time {
 		margin-top: 0.8rem;
 	}
+
+	.content > :global(*:first-child) {
+		margin-top: 0;
+	}
 </style>
