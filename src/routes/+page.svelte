@@ -70,10 +70,18 @@
 	.menu-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 3.8rem;
+		row-gap: 3.8rem;
 
-		@media (min-width: 1000px) {
+		@media (min-width: 700px) {
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: 2.8rem;
+			row-gap: 2.8rem;
+		}
+
+		@media (min-width: 1200px) {
 			grid-template-columns: repeat(3, 1fr);
+			column-gap: 3.8rem;
+			row-gap: 3.8rem;
 		}
 	}
 

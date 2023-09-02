@@ -64,6 +64,8 @@
 	}
 
 	* :global(.thumbnail) {
+		height: 100%;
+		min-height: 400px;
 		max-height: 600px;
 		width: 100%;
 		object-fit: cover;
