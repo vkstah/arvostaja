@@ -123,7 +123,6 @@
 
 	.col-key-data {
 		border-radius: 8px;
-		padding: 1.6rem 2rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -131,17 +130,30 @@
 		background-color: #202020;
 		color: white;
 		width: 220px;
+		padding: 1.2rem 1.6rem;
 		border-radius: 12px;
+
+		@media (min-width: 600px) {
+			padding: 1.6rem 2rem;
+		}
 
 		h2 {
 			margin-bottom: 0;
-			font-size: 20px;
+			font-size: 16px;
+
+			@media (min-width: 600px) {
+				font-size: 20px;
+			}
 		}
 
 		.profit {
 			margin-top: 0.6rem;
 			font-weight: var(--font-weight-bold);
-			font-size: 24px;
+			font-size: 20px;
+
+			@media (min-width: 600px) {
+				font-size: 24px;
+			}
 
 			&::after {
 				content: '';
@@ -195,10 +207,15 @@
 		color: rgb(225, 225, 225);
 		border-spacing: 0;
 		border-collapse: collapse;
+		font-size: 14px;
+
+		@media (min-width: 600px) {
+			font-size: 18px;
+		}
 
 		th,
 		td {
-			padding: 12px 20px;
+			padding: 8px 14px;
 
 			@media (min-width: 600px) {
 				padding: 16px 24px;
