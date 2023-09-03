@@ -55,12 +55,23 @@
 	/>
 </svelte:head>
 
-<Container
-	><h1>Salkku</h1>
-	<p>
+<Container>
+	<h1>Salkku</h1>
+	<p class="description">
 		Kurkista henkilökohtaiseen salkkuuni. Sijoitan yksinomaan laadukkaisiin vapaata kassavirtaa
-		tuottaviin yhtiöihin, joiden tulevaisuus on mielestäni valoisa.
+		tuottaviin yhtiöihin, joiden tulevaisuus on mielestäni valoisa. Salkku on avattu marraskuussa
+		2021.
 	</p>
+	<div class="cols cols-key-data">
+		<div class="col col-key-data">
+			<h2>YTD</h2>
+			<p class="profit negative">-5,86 %</p>
+		</div>
+		<div class="col col-key-data">
+			<h2>Aloituksesta</h2>
+			<p class="profit negative">-25,21 %</p>
+		</div>
+	</div>
 	<div class="cols cols-data">
 		<div class="col col-table">
 			<table>
@@ -98,7 +109,70 @@
 </Container>
 
 <style lang="scss">
-	.cols {
+	.description {
+		margin-bottom: 0;
+	}
+
+	.cols-key-data {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 2rem;
+		margin: 4rem 0;
+	}
+
+	.col-key-data {
+		border-radius: 8px;
+		padding: 1.6rem 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		background-color: #202020;
+		color: white;
+		width: 220px;
+		border-radius: 12px;
+
+		h2 {
+			margin-bottom: 0;
+			font-size: 20px;
+		}
+
+		.profit {
+			margin-top: 0.6rem;
+			font-weight: var(--font-weight-bold);
+			font-size: 24px;
+
+			&::after {
+				content: '';
+				display: inline-block;
+				width: 0;
+				height: 0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-bottom: 10px solid transparent;
+				margin-left: 0.4rem;
+			}
+
+			&.positive {
+				color: #22c55e;
+
+				&::after {
+					border-bottom-color: #22c55e;
+				}
+			}
+			&.negative {
+				color: #ef4444;
+
+				&::after {
+					border-bottom-color: #ef4444;
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+
+	.cols-data {
 		display: grid;
 		row-gap: 3rem;
 
