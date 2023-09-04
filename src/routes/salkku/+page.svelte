@@ -8,42 +8,42 @@
 	const data: Stock[] = [
 		{
 			title: 'Admicom Oyj',
-			weight: 36.3,
+			weight: 37.2,
 			acquisitionPrice: 42.67,
-			profit: -15.16,
+			profit: -11.52,
 			color: '#cce04c'
 		},
 		{
 			title: 'Kesko Corporation B',
-			weight: 23.9,
+			weight: 23.6,
 			acquisitionPrice: 19.06,
-			profit: -4.67,
+			profit: -3.96,
 			color: '#ed722e'
 		},
 		{
 			title: 'Nordea Bank Abp',
-			weight: 13.3,
+			weight: 13.2,
 			acquisitionPrice: 10.03,
-			profit: 0.7,
+			profit: 1.73,
 			color: '#0e7490'
 		},
 		{
 			title: 'Tokmanni Group Oyj',
-			weight: 6.4,
+			weight: 6.2,
 			acquisitionPrice: 11.77,
 			profit: 13.25,
 			color: '#cd3c2f'
 		},
+		{ title: 'Olvi Plc A', weight: 5.9, acquisitionPrice: 28.03, profit: 11.86, color: '#1e293b' },
 		{
 			title: 'Remedy Entertainment Oyj',
-			weight: 6.0,
+			weight: 5.8,
 			acquisitionPrice: 21.24,
-			profit: 17.47,
+			profit: 15.82,
 			color: '#4b5563'
 		},
-		{ title: 'Olvi Plc A', weight: 5.9, acquisitionPrice: 28.03, profit: 9.72, color: '#1e293b' },
-		{ title: 'Gofore Plc', weight: 4.3, acquisitionPrice: 25.91, profit: -19.34, color: '#27272a' },
-		{ title: 'Sampo Plc A', weight: 3.9, acquisitionPrice: 46.88, profit: -13.16, color: '#3f3f46' }
+		{ title: 'Gofore Plc', weight: 4.3, acquisitionPrice: 25.91, profit: -18.19, color: '#27272a' },
+		{ title: 'Sampo Plc A', weight: 3.8, acquisitionPrice: 46.88, profit: -13.05, color: '#3f3f46' }
 	];
 </script>
 
@@ -65,11 +65,11 @@
 	<div class="cols cols-key-data">
 		<div class="col col-key-data">
 			<h2>YTD</h2>
-			<p class="profit negative">-5,86 %</p>
+			<p class="profit negative">-4,01 %</p>
 		</div>
 		<div class="col col-key-data">
 			<h2>Aloituksesta</h2>
-			<p class="profit negative">-25,21 %</p>
+			<p class="profit negative">-23,74 %</p>
 		</div>
 	</div>
 	<div class="cols cols-data">
