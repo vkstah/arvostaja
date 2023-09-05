@@ -177,10 +177,15 @@
 <style lang="scss">
 	.cols-banner {
 		display: grid;
+		gap: 3rem;
 
 		@media (min-width: 1000px) {
-			gap: 14rem;
+			gap: 10rem;
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: 1300px) {
+			gap: 14rem;
 		}
 
 		.col-content .buttons {
@@ -193,13 +198,15 @@
 				background-color: white;
 				padding: 1.2rem 2.8rem;
 				border-radius: 8px;
-				width: 100%;
 				color: black;
+				display: inline-flex;
+				justify-content: center;
 				font-weight: 500;
 				outline: 2px solid transparent;
 				outline-offset: 0px;
+				width: 100%;
 
-				@media (min-width: 800px) {
+				@media (min-width: 600px) {
 					width: auto;
 				}
 
