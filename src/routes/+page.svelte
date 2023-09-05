@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { fade, fly } from 'svelte/transition';
 	import { Container, Articles } from '$lib/components';
 	import Card from './Card.svelte';
 
@@ -48,6 +49,14 @@
 		<div class="col col-content">
 			<h1>Arvostaja</h1>
 			<p>Tervetuloa! Liity mukaan ja kehity kanssani sijoittajana elämänmittaisella matkalla.</p>
+			<div class="thesis">
+				<ol>
+					{#each ['Osta laadukkaita yhtiöitä.', 'Älä maksa niistä liikaa.', 'Älä tee mitään.'] as item, index}
+						<li in:fly={{ delay: 100 + index * 250, x: -30, y: 0 }}>{item}</li>
+					{/each}
+				</ol>
+				<em>— Terry Smith, Fundsmith</em>
+			</div>
 			<div class="buttons">
 				<a href={`${$page.url.origin}/artikkelit`}>Artikkelit</a>
 				<a href={`${$page.url.origin}/salkku`}>Avaa salkku</a>
@@ -186,6 +195,45 @@
 
 		@media (min-width: 1300px) {
 			gap: 14rem;
+		}
+
+		.thesis {
+			margin: 2.9rem 0;
+
+			ol {
+				padding: 0;
+				list-style-position: inside;
+				counter-reset: li;
+				list-style: none;
+				*list-style: decimal;
+
+				& > li + li {
+					margin-top: 1rem;
+				}
+
+				li {
+					position: relative;
+					display: flex;
+					align-items: center;
+					gap: 1rem;
+					color: #e9e9e9;
+
+					&:before {
+						content: counter(li);
+						counter-increment: li;
+						color: #fff;
+						background-color: var(--color-governor-bay);
+						border-radius: 50%;
+						font-size: 18px;
+						height: 48px;
+						width: 48px;
+						line-height: 48px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+				}
+			}
 		}
 
 		.col-content .buttons {
