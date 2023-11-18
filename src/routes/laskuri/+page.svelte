@@ -190,7 +190,7 @@
 				border: 1px solid rgba(67, 56, 202, 0.4);
 
 				h2 {
-					font-size: 18px;
+					font-size: 16px;
 					margin: 0;
 					color: rgb(153, 147, 217);
 				}
