@@ -186,6 +186,8 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				background-color: transparent;
+				border: 1px solid rgba(67, 56, 202, 0.4);
 
 				h2 {
 					font-size: 18px;
@@ -198,21 +200,6 @@
 					font-size: 28px;
 					font-weight: var(--font-weight-semibold);
 					color: white;
-				}
-
-				&-total {
-					background-color: transparent;
-					border: 1px solid rgba(67, 56, 202, 0.4);
-				}
-
-				&-generated {
-					background-color: transparent;
-					border: 1px solid rgba(67, 56, 202, 0.4);
-				}
-
-				&-invested {
-					background-color: transparent;
-					border: 1px solid rgba(67, 56, 202, 0.4);
 				}
 			}
 		}
