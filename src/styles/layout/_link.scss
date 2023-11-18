@@ -1,13 +1,51 @@
 // Default links everywhere
 a {
-	color: var(--color-link-text);
-	text-decoration: underline;
-	text-decoration-color: var(--color-link-text);
-	text-underline-offset: 0.5rem;
+	color: var(--color-white);
+	text-decoration: none;
+	text-decoration-color: var(--color-white);
+	text-underline-offset: 0.25rem;
 	transition: all 0.15s;
 
 	&:hover,
 	&:focus {
-		text-underline-offset: 0.7rem;
+		text-decoration: underline;
+	}
+}
+
+// Links in articles (markdown)
+.markdown {
+	a {
+		color: var(--color-link-text);
+		text-decoration-color: var(--color-link-text);
+		text-decoration: underline;
+
+		&::after {
+			display: inline-block;
+			content: '';
+			background-color: currentColor;
+			mask: url('/arrow-link.svg') no-repeat 50% 50%;
+			-webkit-mask: url('/arrow-link.svg') no-repeat 50% 50%;
+			margin: -0.3em -0.2em -0.25em 0.05em;
+			width: 1.1em;
+			height: 1.1em;
+			transition: all 0.15s;
+		}
+
+		&:hover,
+		&:focus {
+			&::after {
+				transform: translate(3px, -3px);
+			}
+		}
+	}
+}
+
+// Define elements where you do not want to use default link styles
+.site-header,
+.site-footer {
+	a {
+		&::hover {
+			text-decoration: none;
+		}
 	}
 }

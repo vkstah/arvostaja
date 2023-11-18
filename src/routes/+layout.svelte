@@ -38,6 +38,7 @@
 	}
 
 	.title {
+		color: var(--color-white);
 		text-decoration: none;
 		font-weight: 700;
 		font-size: 24px;

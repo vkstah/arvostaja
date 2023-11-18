@@ -51,7 +51,7 @@
 		/>
 	</Container>
 	<ContainerSlim class="container-content">
-		<div class="content">
+		<div class="content markdown">
 			<svelte:component this={data.content} />
 		</div>
 	</ContainerSlim>
