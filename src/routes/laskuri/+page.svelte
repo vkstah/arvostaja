@@ -170,7 +170,7 @@
 
 		.cols-details {
 			grid-template-columns: 1fr;
-			gap: 1.8rem;
+			gap: 2rem;
 
 			@media (min-width: 520px) {
 				grid-template-columns: repeat(2, 1fr);
@@ -190,25 +190,29 @@
 				h2 {
 					font-size: 18px;
 					margin: 0;
+					color: rgb(153, 147, 217);
 				}
 
 				p {
 					margin-top: 0.2rem;
-					font-size: 30px;
+					font-size: 28px;
 					font-weight: var(--font-weight-semibold);
 					color: white;
 				}
 
 				&-total {
-					background-color: #177439;
+					background-color: transparent;
+					border: 1px solid rgba(67, 56, 202, 0.4);
 				}
 
 				&-generated {
-					background-color: rgba(67, 56, 202, 0.4);
+					background-color: transparent;
+					border: 1px solid rgba(67, 56, 202, 0.4);
 				}
 
 				&-invested {
-					background-color: #4338ca;
+					background-color: transparent;
+					border: 1px solid rgba(67, 56, 202, 0.4);
 				}
 			}
 		}
