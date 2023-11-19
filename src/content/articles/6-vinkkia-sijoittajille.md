@@ -4,7 +4,7 @@ excerpt: 'Tässä artikkelissa kerron seitsemän omasta mielestäni tärkeintä 
 datePublished: '2023-9-26'
 dateLastUpdated: '2023-9-26'
 published: true
-thumbnailCloudinaryId: brock-wegner-3ROwc3JSjCk-unsplash_gzc7jf
+thumbnailCloudinaryId: kcxtefvblcaswkrfafdw
 slug: 6-vinkkia-sijoittajille
 ---
 

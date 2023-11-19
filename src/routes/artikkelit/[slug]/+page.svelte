@@ -3,12 +3,20 @@
 	import { Container, ContainerSlim } from '$lib/components';
 	import { formatDate } from '$lib/utils';
 	import { CldImage } from 'svelte-cloudinary';
+	import { Admicom, Tokmanni } from '$lib/images/stocks';
+	import type { Stock } from '$lib/types/index.js';
 
 	export let data;
 	const title = data.meta.title;
 	const date = formatDate(data.meta.datePublished);
 	const readTimeMinutes = Math.round(data.meta.readingTime.minutes);
 	const readTimeText = readTimeMinutes === 1 ? 'minuutti' : 'minuuttia';
+	const stocks: Stock[] = data.meta.stocks;
+
+	const stockLogo = {
+		admicom: Admicom,
+		tokmanni: Tokmanni
+	};
 </script>
 
 <!-- SEO -->
@@ -39,6 +47,13 @@
 		<div class="meta">
 			<h1 class="title">{title}</h1>
 			<p class="date-read-time">{date} – lukuaika {readTimeMinutes} {readTimeText}</p>
+			<ul class="stocks">
+				{#each stocks as stock}
+					<li>
+						<img src={stockLogo[stock]} width="80" height="80" alt="" />
+					</li>
+				{/each}
+			</ul>
 		</div>
 	</ContainerSlim>
 	<Container class="container-thumbnail">
@@ -46,8 +61,9 @@
 			class="thumbnail"
 			src={data.meta.thumbnailCloudinaryId}
 			alt=""
-			width="1300"
-			height="740"
+			width="1040"
+			height="700"
+			quality="auto"
 		/>
 	</Container>
 	<ContainerSlim class="container-content">
@@ -58,9 +74,10 @@
 </article>
 
 <style lang="scss">
-	* > :global(.container-thumbnail) {
+	* :global(.container-thumbnail) {
 		padding-top: 0;
 		padding-bottom: 0;
+		max-width: 1040px;
 	}
 
 	* :global(.thumbnail) {
@@ -94,6 +111,27 @@
 
 	.date-read-time {
 		margin-top: 0.8rem;
+	}
+
+	.stocks {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+
+		li {
+			background-color: white;
+			border-radius: 10px;
+			box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+			height: 80px;
+			width: 80px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: rgb(67, 67, 67);
+			font-weight: var(--font-weight-medium);
+		}
 	}
 
 	.content > :global(*:first-child) {
