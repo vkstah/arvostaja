@@ -1,49 +1,55 @@
 <script lang="ts">
 	import { Container } from '$lib/components';
-	import type { Stock } from '$lib/types';
+	import type { Holding } from '$lib/types';
 	import Chart from './Chart.svelte';
 
 	let selectedIndex: number | null = null;
 
-	const data: Stock[] = [
+	const data: Holding[] = [
 		{
 			title: 'Admicom Oyj',
-			weight: 37.2,
-			acquisitionPrice: 42.67,
-			profit: -11.52,
+			weight: 41.5,
+			acquisitionPrice: 41.19,
+			profit: -0.57,
 			color: '#cce04c'
 		},
 		{
 			title: 'Kesko Corporation B',
-			weight: 23.6,
-			acquisitionPrice: 19.06,
-			profit: -3.96,
+			weight: 24.4,
+			acquisitionPrice: 18.38,
+			profit: -6.74,
 			color: '#ed722e'
 		},
 		{
 			title: 'Nordea Bank Abp',
-			weight: 13.2,
+			weight: 11.9,
 			acquisitionPrice: 10.03,
-			profit: 1.73,
+			profit: 4.56,
 			color: '#0e7490'
 		},
 		{
 			title: 'Tokmanni Group Oyj',
-			weight: 6.2,
-			acquisitionPrice: 11.77,
-			profit: 13.25,
+			weight: 10.7,
+			acquisitionPrice: 12.24,
+			profit: 3.03,
 			color: '#cd3c2f'
 		},
-		{ title: 'Olvi Plc A', weight: 5.9, acquisitionPrice: 28.03, profit: 11.86, color: '#1e293b' },
+		{ title: 'Olvi Plc A', weight: 4.9, acquisitionPrice: 28.02, profit: 5.44, color: '#eaeaea' },
+		{ title: 'Gofore Plc', weight: 4.3, acquisitionPrice: 25.91, profit: -6.61, color: '#fb923c' },
 		{
-			title: 'Remedy Entertainment Oyj',
-			weight: 5.8,
-			acquisitionPrice: 21.24,
-			profit: 15.82,
-			color: '#4b5563'
+			title: 'Mandatum Oyj',
+			weight: 0.3,
+			acquisitionPrice: 0,
+			profit: 0,
+			color: '#262626'
 		},
-		{ title: 'Gofore Plc', weight: 4.3, acquisitionPrice: 25.91, profit: -18.19, color: '#27272a' },
-		{ title: 'Sampo Plc A', weight: 3.8, acquisitionPrice: 46.88, profit: -13.05, color: '#3f3f46' }
+		{
+			title: 'Käteinen',
+			weight: 2.0,
+			acquisitionPrice: 0,
+			profit: 0,
+			color: '#22c55e'
+		}
 	];
 </script>
 
@@ -64,12 +70,16 @@
 	</p>
 	<div class="cols cols-key-data">
 		<div class="col col-key-data">
+			<h2>Päivitetty</h2>
+			<p class="value">19.11.2023</p>
+		</div>
+		<div class="col col-key-data">
 			<h2>YTD</h2>
-			<p class="profit negative">-4,01 %</p>
+			<p class="value profit negative">-0,38 %</p>
 		</div>
 		<div class="col col-key-data">
 			<h2>Aloituksesta</h2>
-			<p class="profit negative">-23,74 %</p>
+			<p class="value profit negative">-20,85 %</p>
 		</div>
 	</div>
 	<div class="cols cols-data">
@@ -114,11 +124,21 @@
 	}
 
 	.cols-key-data {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		gap: 2rem;
-		margin: 4rem 0;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
+		margin-top: 4rem;
+		margin-bottom: 1.4rem;
+
+		@media (min-width: 580px) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2.8rem;
+			margin-bottom: 2.8rem;
+		}
+
+		@media (min-width: 1000px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 
 	.col-key-data {
@@ -128,9 +148,7 @@
 		align-items: center;
 		flex-direction: column;
 		background-color: #202020;
-		color: white;
-		width: 220px;
-		padding: 1.2rem 1.6rem;
+		padding: 1rem 1.4rem;
 		border-radius: 12px;
 
 		@media (min-width: 600px) {
@@ -140,13 +158,14 @@
 		h2 {
 			margin-bottom: 0;
 			font-size: 16px;
+			color: white;
 
 			@media (min-width: 600px) {
 				font-size: 20px;
 			}
 		}
 
-		.profit {
+		.value {
 			margin-top: 0.6rem;
 			font-weight: var(--font-weight-bold);
 			font-size: 20px;
@@ -154,7 +173,9 @@
 			@media (min-width: 600px) {
 				font-size: 24px;
 			}
+		}
 
+		.profit {
 			&::after {
 				content: '';
 				display: inline-block;

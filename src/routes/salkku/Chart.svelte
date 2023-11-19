@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Chart, { type ChartItem, type ChartConfiguration } from 'chart.js/auto';
 	import { onMount } from 'svelte';
-	import type { Stock } from '$lib/types';
+	import type { Holding } from '$lib/types';
 
-	export let data: Stock[];
+	export let data: Holding[];
 	export let selectedIndex: number | null;
 
 	let chart: Chart;

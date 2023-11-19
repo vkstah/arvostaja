@@ -33,12 +33,15 @@ export type Article = {
 	thumbnailCloudinaryId: string;
 	excerpt?: string;
 	dateLastUpdated: string;
+	stocks?: Stock[];
 };
 
-export type Stock = {
+export type Stock = 'admicom' | 'tokmanni';
+
+export type Holding = {
 	title: string;
 	weight: number;
-	profit: number;
 	acquisitionPrice: number;
+	profit: number;
 	color: string;
 };
