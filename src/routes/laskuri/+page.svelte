@@ -169,11 +169,8 @@
 		}
 
 		.cols-details {
-			grid-template-columns: 1fr;
-
-			@media (min-width: 520px) {
-				grid-template-columns: repeat(2, 1fr);
-			}
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
 
 			@media (min-width: 1000px) {
 				grid-template-columns: 1fr;
@@ -181,7 +178,7 @@
 
 			.col {
 				border-radius: 8px;
-				padding: 1.2rem;
+				padding: 1rem;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
@@ -189,15 +186,27 @@
 				border: 1px solid rgba(67, 56, 202, 0.4);
 				align-self: flex-start;
 
+				@media (min-width: 600px) {
+					padding: 1.2rem;
+				}
+
 				h2 {
-					font-size: 16px;
+					font-size: 12px;
 					margin: 0;
+
+					@media (min-width: 600px) {
+						font-size: 16px;
+					}
 				}
 
 				p {
 					margin-top: 0.6rem;
-					font-size: 26px;
+					font-size: 20px;
 					font-weight: var(--font-weight-semibold);
+
+					@media (min-width: 600px) {
+						font-size: 26px;
+					}
 				}
 
 				&-invested,
