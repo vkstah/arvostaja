@@ -11,7 +11,7 @@
 	const date = formatDate(data.meta.datePublished);
 	const readTimeMinutes = Math.round(data.meta.readingTime.minutes);
 	const readTimeText = readTimeMinutes === 1 ? 'minuutti' : 'minuuttia';
-	const stocks: Stock[] = data.meta.stocks;
+	const stocks: Stock[] | null = data.meta.stocks;
 
 	const stockLogo = {
 		admicom: Admicom,
@@ -47,13 +47,15 @@
 		<div class="meta">
 			<h1 class="title">{title}</h1>
 			<p class="date-read-time">{date} – lukuaika {readTimeMinutes} {readTimeText}</p>
-			<ul class="stocks">
-				{#each stocks as stock}
-					<li>
-						<img src={stockLogo[stock]} width="80" height="80" alt="" />
-					</li>
-				{/each}
-			</ul>
+			{#if stocks}
+				<ul class="stocks">
+					{#each stocks as stock}
+						<li>
+							<img src={stockLogo[stock]} width="80" height="80" alt="" />
+						</li>
+					{/each}
+				</ul>
+			{/if}
 		</div>
 	</ContainerSlim>
 	<Container class="container-thumbnail">
