@@ -99,7 +99,7 @@
 						<p>{separateThousands(Math.round(lastYear.generatedAmount))} €</p>
 					</div>
 					<div class="col col-total">
-						<h2>Arvo yhteensä</h2>
+						<h2>Yhteensä</h2>
 						<p>{separateThousands(Math.round(lastYear.totalAmount))} €</p>
 					</div>
 				</div>
@@ -170,7 +170,6 @@
 
 		.cols-details {
 			grid-template-columns: 1fr;
-			gap: 2rem;
 
 			@media (min-width: 520px) {
 				grid-template-columns: repeat(2, 1fr);
@@ -188,18 +187,37 @@
 				justify-content: space-between;
 				background-color: transparent;
 				border: 1px solid rgba(67, 56, 202, 0.4);
+				align-self: flex-start;
 
 				h2 {
 					font-size: 16px;
 					margin: 0;
-					color: rgb(153, 147, 217);
 				}
 
 				p {
-					margin-top: 0.2rem;
-					font-size: 28px;
+					margin-top: 0.6rem;
+					font-size: 26px;
 					font-weight: var(--font-weight-semibold);
-					color: white;
+				}
+
+				&-invested,
+				&-generated {
+					h2 {
+						color: rgb(153, 147, 217);
+					}
+
+					p {
+						color: white;
+					}
+				}
+
+				&-total {
+					background-color: var(--color-governor-bay);
+
+					h2,
+					p {
+						color: white;
+					}
 				}
 			}
 		}
