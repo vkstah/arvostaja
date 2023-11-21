@@ -1,5 +1,25 @@
 <script lang="ts">
 	import '../app.scss';
+	import { page } from '$app/stores';
+
+	const menuItems = [
+		{
+			name: 'Etusivu',
+			url: '/'
+		},
+		{
+			name: 'Artikkelit',
+			url: '/artikkelit'
+		},
+		{
+			name: 'Laskuri',
+			url: '/laskuri'
+		},
+		{
+			name: 'Salkku',
+			url: '/salkku'
+		}
+	];
 </script>
 
 <div>
@@ -7,15 +27,11 @@
 		<a href="/" class="title">Arvostaja</a>
 		<nav class="navigation">
 			<ul>
-				<li>
-					<a href="/artikkelit">Artikkelit</a>
-				</li>
-				<li>
-					<a href="/laskuri">Laskuri</a>
-				</li>
-				<li>
-					<a href="/salkku">Salkku</a>
-				</li>
+				{#each menuItems as menuItem}
+					<li aria-current={$page.url.pathname === menuItem.url ? 'page' : undefined}>
+						<a href={menuItem.url}>{menuItem.name}</a>
+					</li>
+				{/each}
 			</ul>
 		</nav>
 		<div class="settings">
@@ -55,6 +71,7 @@
 			list-style: none;
 			display: flex;
 			gap: 2.6rem;
+			padding: 0;
 		}
 
 		a {
@@ -62,8 +79,9 @@
 			font-weight: 500;
 			color: var(--color-cadet-blue);
 
-			&:hover {
-				color: #5de2f9;
+			&:hover,
+			&:focus {
+				color: #6b5dff;
 			}
 		}
 	}
