@@ -146,7 +146,12 @@
 		column-gap: 4rem;
 		row-gap: 1.6rem;
 
-		@media (min-width: 700px) {
+		@media (min-width: 550px) {
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: 2.8rem;
+		}
+
+		@media (min-width: 1000px) {
 			grid-template-columns: repeat(4, 1fr);
 			column-gap: 2.8rem;
 		}
