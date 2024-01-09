@@ -33,7 +33,7 @@
 
 <style lang="scss">
 	$padding-horizontal: 1.8rem;
-	$padding-vertical: 1.2rem;
+	$padding-vertical: 1rem;
 
 	.wrapper {
 		background-color: #26272e;
@@ -70,7 +70,7 @@
 		display: flex;
 		justify-content: center;
 		flex-shrink: 0;
-		width: 100px;
+		width: 80px;
 		background-color: #1a1b22;
 		opacity: 0.5;
 	}
