@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container, Articles } from '$lib/components';
+	import { Articles } from '$lib/components';
 
 	export let data;
 	const articles = data.articles;
@@ -9,14 +9,14 @@
 	<title>Artikkelit - Arvostaja</title>
 </svelte:head>
 
-<Container>
+<div class="container">
 	<h1>Artikkelit</h1>
 	<p>Sijoitusaiheisia juttuja.</p>
-</Container>
+</div>
 
-<Container>
+<div class="container">
 	<Articles {articles} />
-</Container>
+</div>
 
 <style lang="scss">
 </style>

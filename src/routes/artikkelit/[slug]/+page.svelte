@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Container, ContainerSlim } from '$lib/components';
 	import { formatDate } from '$lib/utils';
 	import { CldImage } from 'svelte-cloudinary';
 	import { Admicom, Tokmanni } from '$lib/images/stocks';
@@ -27,7 +26,7 @@
 </svelte:head>
 
 <article>
-	<ContainerSlim class="container-header">
+	<div class="container container-header">
 		<div class="additional">
 			<a class="back" href={`${$page.url.origin}/artikkelit`}
 				><svg
@@ -57,8 +56,8 @@
 				</ul>
 			{/if}
 		</div>
-	</ContainerSlim>
-	<Container class="container-thumbnail">
+	</div>
+	<div class="container container-thumbnail">
 		<CldImage
 			class="thumbnail"
 			src={data.meta.thumbnailCloudinaryId}
@@ -67,16 +66,21 @@
 			height="600"
 			quality="auto"
 		/>
-	</Container>
-	<ContainerSlim class="container-content">
+	</div>
+	<div class="container container-content">
 		<div class="content markdown">
 			<svelte:component this={data.content} />
 		</div>
-	</ContainerSlim>
+	</div>
 </article>
 
 <style lang="scss">
-	* :global(.container-thumbnail) {
+	.container-header,
+	.container-content {
+		max-width: 860px;
+	}
+
+	.container-thumbnail {
 		padding-top: 0;
 		padding-bottom: 0;
 		padding-left: 0;

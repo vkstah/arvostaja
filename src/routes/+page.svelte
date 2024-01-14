@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { fade, fly } from 'svelte/transition';
-	import { Container, Articles } from '$lib/components';
+	import { Articles } from '$lib/components';
 	import Card from './Card.svelte';
 
 	type Card = {
@@ -44,7 +44,7 @@
 	<meta name="description" content="Sijoittajan jorinaa" />
 </svelte:head>
 
-<Container>
+<div class="container">
 	<div class="cols cols-banner">
 		<div class="col col-content">
 			<h1>Arvostaja</h1>
@@ -159,8 +159,8 @@
 			>
 		</div>
 	</div>
-</Container>
-<Container>
+</div>
+<div class="container">
 	<div class="menu-grid">
 		{#each cards as card}
 			<Card
@@ -172,8 +172,8 @@
 			/>
 		{/each}
 	</div>
-</Container>
-<Container>
+</div>
+<div class="container">
 	<div class="blog-upsell">
 		<div class="header">
 			<p class="prefix" aria-describedby="blog-upsell-title">Uusinta jorinaa.</p>
@@ -181,7 +181,7 @@
 		</div>
 		<Articles {articles} />
 	</div>
-</Container>
+</div>
 
 <style lang="scss">
 	.cols-banner {

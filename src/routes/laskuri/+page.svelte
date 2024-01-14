@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Container, NumberInput, Label } from '$lib/components';
+	import { NumberInput, Label } from '$lib/components';
 	import Chart from './Chart.svelte';
 	import type { Period } from '$lib/types';
 	import { calculateCompoundedAmount, separateThousands } from '$lib/utils';
@@ -29,7 +29,7 @@
 	/>
 </svelte:head>
 
-<Container>
+<div class="container">
 	<h1>Korkoa korolle -laskuri</h1>
 	<p>
 		Arvioi joko kerta- tai säännöllisen sijoituksesi tuottoa kätevästi korkoa korolle -laskurilla.
@@ -137,7 +137,7 @@
 			lisätään joka <em>kuukauden lopussa</em> summaan. Tällöin jaksotustahti on 12 per vuosi.
 		</p>
 	</div>
-</Container>
+</div>
 
 <style lang="scss">
 	.inputs {

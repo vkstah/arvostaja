@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Container } from '$lib/components';
 	import type { Holding } from '$lib/types';
 	import Chart from './Chart.svelte';
 
@@ -61,7 +60,7 @@
 	/>
 </svelte:head>
 
-<Container>
+<div class="container">
 	<h1>Salkku</h1>
 	<p class="description">
 		Kurkista henkilökohtaiseen salkkuuni. Sijoitan yksinomaan laadukkaisiin vapaata kassavirtaa
@@ -116,7 +115,7 @@
 			<Chart {data} {selectedIndex} />
 		</div>
 	</div>
-</Container>
+</div>
 
 <style lang="scss">
 	.description {
