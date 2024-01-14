@@ -188,6 +188,10 @@
 	}
 
 	.nav-toggle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
 		@media (min-width: 1000px) {
 			display: none;
 		}
