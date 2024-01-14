@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.scss';
-	import { page } from '$app/stores';
+	import { page, navigating } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { fade, slide } from 'svelte/transition';
 
@@ -25,18 +25,14 @@
 		}
 	];
 
+	$: if ($navigating) {
+		isMenuOpen = false;
+	}
+
 	onMount(async () => {
 		const header = document.querySelector('.site-header') as HTMLElement;
 		headerHeight = header.offsetHeight;
 	});
-
-	const openMenu = () => {
-		isMenuOpen = true;
-	};
-
-	const closeMenu = () => {
-		isMenuOpen = false;
-	};
 </script>
 
 <div>
@@ -58,7 +54,7 @@
 				aria-controls="nav"
 				aria-label="Päävalikko"
 				class="nav-toggle"
-				on:click={() => (isMenuOpen ? closeMenu() : openMenu())}
+				on:click={() => (isMenuOpen = !isMenuOpen)}
 			>
 				{#if isMenuOpen}
 					<svg
@@ -115,7 +111,13 @@
 		</div>
 	</footer>
 	{#if isMenuOpen}
-		<div class="overlay" transition:fade={{ duration: 150 }} />
+		<div
+			class="overlay"
+			transition:fade={{ duration: 150 }}
+			on:click={() => (isMenuOpen = false)}
+			on:keydown={() => {}}
+			tabindex="-1"
+		/>
 	{/if}
 </div>
 
@@ -202,6 +204,12 @@
 		position: fixed;
 		left: 0;
 		right: 0;
+		border-top: 1px solid #4a4a4a;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+
+	.nav-mobile {
 	}
 
 	.overlay {

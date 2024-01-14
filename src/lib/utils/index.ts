@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import 'dayjs/locale/fi';
+import type { Action } from 'svelte/types/runtime/action';
 
 /**
  * Separate thousands in a number. For example, input of 5000 will give you 5 000.
