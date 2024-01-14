@@ -11,3 +11,6 @@ export { default as Button } from './buttons/Button.svelte';
 export { default as Label } from './forms/Label.svelte';
 export { default as NumberInput } from './forms/NumberInput.svelte';
 export { default as TextInput } from './forms/TextInput.svelte';
+
+// other
+export { default as Loader } from './Loader.svelte';

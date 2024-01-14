@@ -2,7 +2,8 @@
 	import '../app.scss';
 	import { page, navigating } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { fade, slide } from 'svelte/transition';
+	import { fade, fly, slide } from 'svelte/transition';
+	import Loader from '$lib/components/Loader.svelte';
 
 	let headerHeight = 0;
 	let isMenuOpen = false;
@@ -35,7 +36,7 @@
 	});
 </script>
 
-<div>
+<div class="wrapper">
 	<header class="site-header">
 		<a href="/" class="title">Arvostaja</a>
 		<nav id="nav" class="nav-primary">
@@ -98,6 +99,12 @@
 			{/if}
 		</div>
 	</header>
+	{#if $navigating}
+		<div class="loading" in:fly out:fly>
+			<Loader />
+			<span>Ladataan...</span>
+		</div>
+	{/if}
 	<slot />
 	<footer class="site-footer">
 		<div class="container">
@@ -122,6 +129,10 @@
 </div>
 
 <style lang="scss">
+	.wrapper {
+		position: relative;
+	}
+
 	.site-header {
 		background-color: var(--color-background-site);
 		border-top: 1px solid #4a4a4a;
@@ -220,6 +231,19 @@
 		bottom: 0;
 		background-color: #1a1a1a;
 		opacity: 0.7;
+	}
+
+	.loading {
+		position: fixed;
+		top: 24px;
+		right: 24px;
+		background-color: var(--color-white);
+		border-radius: 8px;
+		padding: 1.8rem;
+		display: flex;
+		align-items: center;
+		color: black;
+		gap: 2rem;
 	}
 
 	.site-footer {
