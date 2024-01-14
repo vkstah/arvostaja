@@ -1,15 +1,19 @@
+// Naming colors: https://chir.ag/projects/name-that-color/
+
 :root {
 	// Color pool
 	--color-cod-gray: #171717;
+	--color-test: hsl(252, 12%, 8%);
 	--color-cadet-blue: #a9adc1;
 	--color-governor-bay: #4338ca;
 	--color-mint: #4afbd2;
+	--color-gallery: #ededed;
 	--color-white: #fff;
 
 	// Elements
-	--color-heading: var(--color-white);
+	--color-heading: var(--color-gallery);
 	--color-paragraph: var(--color-cadet-blue);
-	--color-background-site: var(--color-cod-gray);
+	--color-background-site: var(--color-test);
 	--color-link-text: var(--color-mint);
 
 	// States

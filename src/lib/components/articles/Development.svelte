@@ -1,47 +1,29 @@
 <script lang="ts">
 	export let value: number;
-
-	const displayValue = () => {
-		return value;
-	};
 </script>
 
 <span
 	class="development"
 	class:development-negative={value < 0}
-	class:development-positive={value >= 0}>{displayValue()}%</span
+	class:development-positive={value >= 0}>{value.toLocaleString()}%</span
 >
 
 <style lang="scss">
 	.development {
-		display: inline-block;
+		border-radius: 4px;
 		color: white;
-		padding: 0 0.375rem;
-		border-radius: 6px;
-		font-weight: var(--font-weight-bold);
+		display: inline-block;
+		font-weight: 500;
+		line-height: normal;
+		padding: 0.4rem 0.6rem;
 
 		&-negative {
-			background-color: rgba(239, 68, 68, 0.7);
-
-			&::before {
-				transform: rotate(180deg);
-			}
+			background-color: rgba(255, 84, 84, 0.3);
+			color: #ff2c2c;
 		}
 
 		&-positive {
 			background-color: rgba(34, 197, 94, 0.7);
-		}
-
-		&::before {
-			content: '';
-			display: inline-block;
-			width: 0;
-			height: 0;
-			border-left: 8px solid transparent;
-			border-right: 8px solid transparent;
-			border-bottom: 8px solid transparent;
-			margin-right: 0.4rem;
-			border-bottom-color: white;
 		}
 	}
 </style>

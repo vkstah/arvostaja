@@ -2,7 +2,7 @@
 title: '6 vinkkiä sijoittajille'
 excerpt: 'Tässä artikkelissa kerron seitsemän omasta mielestäni tärkeintä vinkkiä sijoittajille.'
 datePublished: '2023-9-26'
-dateLastUpdated: '2023-9-26'
+dateLastUpdated: '2024-1-14'
 published: true
 thumbnailCloudinaryId: kcxtefvblcaswkrfafdw
 slug: 6-vinkkia-sijoittajille
@@ -34,7 +34,7 @@ Pitkällä aikavälillä tarkastaeltaessa osakkeen hintakehitys kyllä seuraa yh
   Olet lähdössä 10 vuodeksi saarelle. Saarella ollessasi et pääse tarkastelemaan salkkuasi tai tekemään mitään toimeksiantoja.
   <br/>
   <br/>
-  <strong>Oletko silti valmis sijoittamaan tähän yhtiöön?</strong>
+  Oletko silti valmis sijoittamaan tähän yhtiöön?
 </Highlight>
 
 Väittäisin, että valtaosa sijoittajista ei ajattele sijoituksiaan tällä tavalla.
@@ -78,7 +78,7 @@ Vaikka pidän Pyysingin Akia reippaasti itseäni fiksumpana kaverina, olen vakuu
 Mitä on vapaa kassavirta? **Vapaa kassavirta**, joka tunnetaan myös nimellä **Free Cash Flow (FCF)** tarkoittaa sitä rahavirtaa, joka tulee yhtiöön kaikkien kulujen ja investointien jälkeen. Se saadaan laskettua verrattain yksinkertaisella kaavalla:
 
 <Highlight>
-  <strong>Vapaa kassavirta (FCF)</strong> = Operatiivinen kassavirta (OCF) - Investoinnit (CAPEX)
+  Vapaa kassavirta (FCF) = Operatiivinen kassavirta (OCF) - Investoinnit (CAPEX)
 </Highlight>
 
 Laskuun tarvittavat luvut operatiivinen kassavirta sekä investoinnit löytyvät pörssiyhtiöiden tilinpäätöksistä, joten luku on helppo laskea.

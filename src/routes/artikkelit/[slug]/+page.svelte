@@ -64,7 +64,7 @@
 			src={data.meta.thumbnailCloudinaryId}
 			alt=""
 			width="1040"
-			height="700"
+			height="600"
 			quality="auto"
 		/>
 	</Container>
@@ -79,7 +79,12 @@
 	* :global(.container-thumbnail) {
 		padding-top: 0;
 		padding-bottom: 0;
-		max-width: 1040px;
+		padding-left: 0;
+		padding-right: 0;
+
+		@media (min-width: 1070px) {
+			max-width: 1040px;
+		}
 	}
 
 	* :global(.thumbnail) {
@@ -88,11 +93,14 @@
 		max-height: 600px;
 		width: 100%;
 		object-fit: cover;
-		border-radius: 12px;
+
+		@media (min-width: 1070px) {
+			border-radius: 12px;
+		}
 	}
 
 	.additional {
-		margin-bottom: 1.8rem;
+		margin-bottom: 1.2rem;
 	}
 
 	.back {
@@ -112,7 +120,7 @@
 	}
 
 	.date-read-time {
-		margin-top: 0.8rem;
+		margin-top: 0.6rem;
 	}
 
 	.stocks {
