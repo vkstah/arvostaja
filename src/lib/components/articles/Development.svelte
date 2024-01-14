@@ -11,19 +11,18 @@
 <style lang="scss">
 	.development {
 		border-radius: 4px;
-		color: white;
+		color: var(--color-white);
 		display: inline-block;
 		font-weight: 500;
 		line-height: normal;
 		padding: 0.4rem 0.6rem;
 
 		&-negative {
-			background-color: rgba(255, 84, 84, 0.3);
-			color: #ff2c2c;
+			background-color: #be2f2f;
 		}
 
 		&-positive {
-			background-color: rgba(34, 197, 94, 0.7);
+			background-color: #22c55e;
 		}
 	}
 </style>

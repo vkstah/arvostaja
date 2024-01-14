@@ -39,6 +39,17 @@
 		</div>
 	</header>
 	<slot />
+	<footer class="site-footer">
+		<div class="container">
+			<div class="bottom">
+				<p>
+					Tällä sivustolla esitetty ei ole, eikä sitä tule käsittää kehotukseksi merkitä, ostaa tai
+					myydä arvopapereita.
+				</p>
+				<p>Kaikki oikeudet pidätetään. Arvostaja {new Date().getFullYear()}.</p>
+			</div>
+		</div>
+	</footer>
 </div>
 
 <style lang="scss">
@@ -58,6 +69,12 @@
 		text-decoration: none;
 		font-weight: 700;
 		font-size: 24px;
+
+		&:hover,
+		&:focus {
+			color: #6b5dff;
+			transform: rotate(8deg);
+		}
 	}
 
 	.navigation {
@@ -75,14 +92,24 @@
 		}
 
 		a {
-			text-decoration: none;
-			font-weight: 500;
 			color: var(--color-cadet-blue);
+			display: inline-block;
+			font-weight: 500;
+			text-decoration: none;
 
 			&:hover,
 			&:focus {
 				color: #6b5dff;
+				transform: rotate(6deg);
 			}
+		}
+	}
+
+	.site-footer {
+		.bottom p {
+			margin: 0.4rem;
+			padding: 0;
+			text-align: center;
 		}
 	}
 </style>
