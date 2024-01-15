@@ -264,11 +264,9 @@
 			}
 		}
 
-		li[aria-current='page'] {
-			a {
-				background-color: #6b5dff20;
-				color: #6b5dff;
-			}
+		li[aria-current='page'] a {
+			background-color: #6b5dff20;
+			color: #6b5dff;
 		}
 	}
 
