@@ -27,8 +27,26 @@
 	];
 
 	$: if ($navigating) {
-		isMenuOpen = false;
+		closeMenu();
 	}
+
+	const toggleMenu = () => {
+		if (isMenuOpen) {
+			closeMenu();
+		} else {
+			openMenu();
+		}
+	};
+
+	const openMenu = () => {
+		isMenuOpen = true;
+		document.body.style.overflow = 'hidden';
+	};
+
+	const closeMenu = () => {
+		isMenuOpen = false;
+		document.body.style.overflow = 'auto';
+	};
 
 	onMount(async () => {
 		const header = document.querySelector('.site-header') as HTMLElement;
@@ -55,7 +73,7 @@
 				aria-controls="nav"
 				aria-label="Päävalikko"
 				class="nav-toggle"
-				on:click={() => (isMenuOpen = !isMenuOpen)}
+				on:click={toggleMenu}
 			>
 				{#if isMenuOpen}
 					<svg
@@ -121,7 +139,7 @@
 		<div
 			class="overlay"
 			transition:fade={{ duration: 150 }}
-			on:click={() => (isMenuOpen = false)}
+			on:click={closeMenu}
 			on:keydown={() => {}}
 			tabindex="-1"
 		/>
@@ -221,6 +239,30 @@
 	}
 
 	.nav-mobile {
+		ul {
+			list-style: none;
+			margin: 0;
+			padding-top: 0.6rem;
+			padding-bottom: 0.6rem;
+			padding-left: var(--padding-container-horizontal);
+			padding-right: var(--padding-container-horizontal);
+			overflow-y: scroll;
+			pointer-events: all;
+			max-height: 60vh;
+		}
+
+		a {
+			display: block;
+			padding: 2px 12px;
+			margin: 4px 0;
+			border-radius: 4px;
+
+			&:focus,
+			&:hover {
+				background-color: rgb(30, 30, 30);
+				text-decoration: none;
+			}
+		}
 	}
 
 	.overlay {
