@@ -60,8 +60,12 @@
 		<nav id="nav" class="nav-primary">
 			<ul>
 				{#each menuItems as menuItem}
-					<li aria-current={$page.url.pathname === menuItem.url ? 'page' : undefined}>
-						<a href={menuItem.url}>{menuItem.name}</a>
+					<li>
+						<a
+							href={menuItem.url}
+							aria-current={$page.url.pathname === menuItem.url ? 'page' : undefined}
+							>{menuItem.name}</a
+						>
 					</li>
 				{/each}
 			</ul>
@@ -103,12 +107,21 @@
 				{/if}
 			</button>
 			{#if isMenuOpen}
-				<div class="mobile-menu" style={`bottom: ${headerHeight}px;`} in:slide|global out:slide|global>
+				<div
+					class="mobile-menu"
+					style={`bottom: ${headerHeight}px;`}
+					in:slide|global
+					out:slide|global
+				>
 					<nav id="nav" class="nav-mobile">
 						<ul>
 							{#each menuItems as menuItem}
-								<li aria-current={$page.url.pathname === menuItem.url ? 'page' : undefined}>
-									<a href={menuItem.url}>{menuItem.name}</a>
+								<li>
+									<a
+										href={menuItem.url}
+										aria-current={$page.url.pathname === menuItem.url ? 'page' : undefined}
+										>{menuItem.name}</a
+									>
 								</li>
 							{/each}
 						</ul>
@@ -262,11 +275,11 @@
 				background-color: rgb(30, 30, 30);
 				text-decoration: none;
 			}
-		}
 
-		li[aria-current='page'] a {
-			background-color: #6b5dff20;
-			color: #6b5dff;
+			&[aria-current='page'] {
+				background-color: #6b5dff20;
+				color: #6b5dff;
+			}
 		}
 	}
 
