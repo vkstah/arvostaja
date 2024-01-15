@@ -248,7 +248,7 @@
 			padding-right: var(--padding-container-horizontal);
 			overflow-y: scroll;
 			pointer-events: all;
-			max-height: 60vh;
+			max-height: 55vh;
 		}
 
 		a {
@@ -261,6 +261,13 @@
 			&:hover {
 				background-color: rgb(30, 30, 30);
 				text-decoration: none;
+			}
+		}
+
+		li[aria-current='page'] {
+			a {
+				background-color: #6b5dff20;
+				color: #6b5dff;
 			}
 		}
 	}
