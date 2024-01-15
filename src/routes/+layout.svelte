@@ -186,7 +186,7 @@
 		&:hover,
 		&:focus {
 			color: #6b5dff;
-			transform: rotate(6deg);
+			transform: rotate(5deg);
 		}
 	}
 
@@ -213,7 +213,7 @@
 			&:hover,
 			&:focus {
 				color: #6b5dff;
-				transform: rotate(6deg);
+				transform: rotate(5deg);
 			}
 		}
 	}
