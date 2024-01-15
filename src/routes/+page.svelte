@@ -52,7 +52,7 @@
 			<div class="thesis">
 				<ol>
 					{#each ['Osta laadukkaita yhtiöitä.', 'Älä maksa niistä liikaa.', 'Älä tee mitään.'] as item, index}
-						<li in:fly={{ delay: 100 + index * 250, x: -30, y: 0 }}>{item}</li>
+						<li in:fly|global={{ delay: 100 + index * 250, x: -30, y: 0 }}>{item}</li>
 					{/each}
 				</ol>
 				<em>— Terry Smith, Fundsmith</em>

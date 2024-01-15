@@ -103,7 +103,7 @@
 				{/if}
 			</button>
 			{#if isMenuOpen}
-				<div class="mobile-menu" style={`bottom: ${headerHeight}px;`} in:slide out:slide>
+				<div class="mobile-menu" style={`bottom: ${headerHeight}px;`} in:slide|global out:slide|global>
 					<nav id="nav" class="nav-mobile">
 						<ul>
 							{#each menuItems as menuItem}
@@ -118,7 +118,7 @@
 		</div>
 	</header>
 	{#if $navigating}
-		<div class="loading" in:fly out:fly>
+		<div class="loading" in:fly|global out:fly|global>
 			<Loader />
 			<span>Ladataan...</span>
 		</div>
@@ -138,7 +138,7 @@
 	{#if isMenuOpen}
 		<div
 			class="overlay"
-			transition:fade={{ duration: 150 }}
+			transition:fade|global={{ duration: 150 }}
 			on:click={closeMenu}
 			on:keydown={() => {}}
 			tabindex="-1"
