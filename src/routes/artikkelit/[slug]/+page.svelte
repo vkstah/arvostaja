@@ -50,7 +50,12 @@
 				<ul class="stocks">
 					{#each stocks as stock}
 						<li>
-							<img src={stockLogo[stock]} width="80" height="80" alt="" />
+							<img
+								src={stockLogo[stock]}
+								width="80"
+								height="80"
+								alt={`Yhtiön ${stock.charAt(0).toUpperCase() + stock.slice(1)} logo`}
+							/>
 						</li>
 					{/each}
 				</ul>
@@ -61,7 +66,7 @@
 		<CldImage
 			class="thumbnail"
 			src={data.meta.thumbnailCloudinaryId}
-			alt=""
+			alt="Artikkelin taustakuva"
 			width="1040"
 			height="600"
 			quality="auto"

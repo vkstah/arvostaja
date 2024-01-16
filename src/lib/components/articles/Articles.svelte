@@ -32,7 +32,12 @@
 								{#if article.stocks.length > 3}
 									{#each article.stocks.slice(0, 2) as stock}
 										<li>
-											<img src={stockLogo[stock]} width="64" height="64" alt="" />
+											<img
+												src={stockLogo[stock]}
+												width="64"
+												height="64"
+												alt={`Yhtiön ${stock.charAt(0).toUpperCase() + stock.slice(1)} logo`}
+											/>
 										</li>
 									{/each}
 									<li>
