@@ -198,14 +198,13 @@
 		}
 
 		.thesis {
-			margin: 2.9rem 0;
+			margin: 2.2rem 0;
 
 			ol {
 				padding: 0;
 				list-style-position: inside;
 				counter-reset: li;
 				list-style: none;
-				*list-style: decimal;
 
 				& > li + li {
 					margin-top: 1rem;
@@ -224,53 +223,67 @@
 						color: #fff;
 						background-color: var(--color-governor-bay);
 						border-radius: 50%;
-						font-size: 18px;
-						height: 48px;
-						width: 48px;
-						line-height: 48px;
+						height: 36px;
+						width: 36px;
+						line-height: 36px;
 						display: flex;
 						justify-content: center;
 						align-items: center;
+						font-size: 14px;
+						font-weight: 500;
+
+						@media (min-width: 1000px) {
+							font-size: 18px;
+							height: 48px;
+							width: 48px;
+						}
 					}
 				}
 			}
 		}
 
-		.col-content .buttons {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 2rem;
+		.col-content {
+			p,
+			.thesis {
+				margin: 2.2rem 0;
+			}
 
-			a {
-				text-decoration: none;
-				background-color: white;
-				padding: 1.2rem 2.8rem;
-				border-radius: 8px;
-				color: black;
-				display: inline-flex;
-				justify-content: center;
-				font-weight: 500;
-				outline: 2px solid transparent;
-				outline-offset: 0px;
-				width: 100%;
+			.buttons {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2rem;
 
-				@media (min-width: 600px) {
-					width: auto;
-				}
+				a {
+					text-decoration: none;
+					background-color: white;
+					padding: 1.2rem 2.8rem;
+					border-radius: 8px;
+					color: black;
+					display: inline-flex;
+					justify-content: center;
+					font-weight: 500;
+					outline: 2px solid transparent;
+					outline-offset: 0px;
+					width: 100%;
 
-				&:hover,
-				&:focus {
-					outline-offset: 6px;
-					outline: 2px solid white;
-				}
-
-				&:first-child {
-					background-color: #4338ca;
-					color: white;
+					@media (min-width: 600px) {
+						width: auto;
+					}
 
 					&:hover,
 					&:focus {
-						outline: 2px solid #4338ca;
+						outline-offset: 6px;
+						outline: 2px solid white;
+					}
+
+					&:first-child {
+						background-color: #4338ca;
+						color: white;
+
+						&:hover,
+						&:focus {
+							outline: 2px solid #4338ca;
+						}
 					}
 				}
 			}

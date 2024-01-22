@@ -7,6 +7,7 @@
 
 	let headerHeight = 0;
 	let isMenuOpen = false;
+	let direction: 'up' | 'down' | null = null;
 	const menuItems = [
 		{
 			name: 'Etusivu',
@@ -48,14 +49,39 @@
 		document.body.style.overflow = 'auto';
 	};
 
+	const setHeaderHeight = (header: HTMLElement) => {
+		headerHeight = header.offsetHeight;
+	};
+
+	const isMobile = (window: Window): boolean => {
+		return window.innerWidth < 1000;
+	};
+
 	onMount(async () => {
 		const header = document.querySelector('.site-header') as HTMLElement;
-		headerHeight = header.offsetHeight;
+		setHeaderHeight(header);
+
+		// Exit if not on mobile
+		// if (!isMobile(window)) return;
+
+		// Handle scrolling events
+		let prevScrollY = window.scrollY;
+		window.addEventListener('scroll', (evt) => {
+			const currentScrollY = window.scrollY;
+
+			if (prevScrollY < currentScrollY) {
+				direction = 'down';
+			} else {
+				direction = 'up';
+			}
+
+			prevScrollY = currentScrollY;
+		});
 	});
 </script>
 
 <div class="wrapper">
-	<header class="site-header">
+	<header class="site-header" class:hidden={direction === 'down' ? true : false}>
 		<a href="/" class="title">Arvostaja</a>
 		<nav id="nav" class="nav-primary">
 			<ul>
@@ -165,6 +191,10 @@
 	}
 
 	.site-header {
+		--height-header: 80px;
+		--height-header-mobile: 72px;
+
+		height: var(--height-header-mobile);
 		background-color: var(--color-background-site);
 		border-top: 1px solid #4a4a4a;
 		margin-left: auto;
@@ -175,18 +205,24 @@
 		justify-content: space-between;
 		padding-left: var(--padding-container-horizontal);
 		padding-right: var(--padding-container-horizontal);
-		padding-top: 0.7rem;
-		padding-bottom: 0.7rem;
 		position: fixed;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		z-index: 10;
+		transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+		transition-property: transform;
 
 		@media (min-width: 1000px) {
+			height: var(--height-header);
 			border-top: none;
-			padding: 1.8rem;
 			position: static;
+		}
+
+		@media (max-width: calc(1000px - 1px)) {
+			&.hidden {
+				transform: translateY(var(--height-header-mobile));
+			}
 		}
 	}
 
@@ -215,6 +251,7 @@
 			gap: 2.6rem;
 			list-style: none;
 			padding: 0;
+			margin: 0;
 		}
 
 		a {

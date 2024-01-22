@@ -60,13 +60,15 @@
 	/>
 </svelte:head>
 
-<div class="container">
+<div class="container container-banner">
 	<h1>Salkku</h1>
 	<p class="description">
 		Kurkista henkilökohtaiseen salkkuuni. Sijoitan yksinomaan laadukkaisiin vapaata kassavirtaa
 		tuottaviin yhtiöihin, joiden tulevaisuus on mielestäni valoisa. Salkku on avattu marraskuussa
 		2021.
 	</p>
+</div>
+<div class="container container-summary">
 	<div class="cols cols-key-data">
 		<div class="col col-key-data">
 			<h2>Päivitetty</h2>
@@ -81,6 +83,8 @@
 			<p class="value profit negative">-20,85 %</p>
 		</div>
 	</div>
+</div>
+<div class="container container-visualization">
 	<div class="cols cols-data">
 		<div class="col col-table">
 			<table>
@@ -118,6 +122,24 @@
 </div>
 
 <style lang="scss">
+	.container-banner {
+		padding-bottom: 0;
+	}
+
+	.container-summary {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.container-visualization {
+		padding-top: 0;
+
+		@media (max-width: calc(1000px - 1px)) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
 	.description {
 		margin-bottom: 0;
 	}
@@ -228,6 +250,7 @@
 		border-spacing: 0;
 		border-collapse: collapse;
 		font-size: 14px;
+		width: 100%;
 
 		@media (min-width: 600px) {
 			font-size: 18px;
