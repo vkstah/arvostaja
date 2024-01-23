@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { NumberInput, Label } from '$lib/components';
 	import Chart from './Chart.svelte';
 	import type { Period } from '$lib/types';
 	import { calculateCompoundedAmount, separateThousands } from '$lib/utils';
+	import { Label } from '$lib/components/ui/label';
+	import { Input } from '$lib/components/ui/input';
 
 	let principalAmount: number = 2000;
 	let years: number = 10;
@@ -39,7 +40,7 @@
 	<div class="inputs">
 		<div class="input">
 			<Label for="principal-amount" class="label">Aloitussumma</Label>
-			<NumberInput
+			<Input
 				unit="€"
 				id="principal-amount"
 				type="number"
@@ -51,7 +52,7 @@
 		</div>
 		<div class="input">
 			<Label for="years" class="label">Säästöaika</Label>
-			<NumberInput
+			<Input
 				unit="vuotta"
 				id="years"
 				type="number"
@@ -63,7 +64,7 @@
 		</div>
 		<div class="input">
 			<Label for="monthly-recurring-payment" class="label">Säännöllinen sijoitus</Label>
-			<NumberInput
+			<Input
 				unit="€ / kk"
 				id="monthly-recurring-payment"
 				type="number"
@@ -75,15 +76,7 @@
 		</div>
 		<div class="input">
 			<Label for="rate" class="label">Tuotto / vuosi</Label>
-			<NumberInput
-				unit="%"
-				id="rate"
-				type="number"
-				bind:value={rate}
-				placeholder="8"
-				min="0"
-				max="100"
-			/>
+			<Input unit="%" id="rate" type="number" bind:value={rate} placeholder="8" min="0" max="100" />
 		</div>
 	</div>
 	<div class="results">
@@ -189,7 +182,7 @@
 				flex-direction: column;
 				justify-content: space-between;
 				background-color: transparent;
-				border: 1px solid rgba(67, 56, 202, 0.4);
+				border: 1px solid var(--color-border);
 				align-self: flex-start;
 
 				@media (min-width: 600px) {
@@ -198,6 +191,7 @@
 
 				h2 {
 					font-size: 12px;
+					font-weight: 400;
 					margin: 0;
 
 					@media (min-width: 600px) {
@@ -217,10 +211,6 @@
 
 				&-invested,
 				&-generated {
-					h2 {
-						color: rgb(153, 147, 217);
-					}
-
 					p {
 						color: white;
 					}
@@ -228,6 +218,7 @@
 
 				&-total {
 					background-color: var(--color-governor-bay);
+					border-color: var(--color-governor-bay);
 
 					h2,
 					p {

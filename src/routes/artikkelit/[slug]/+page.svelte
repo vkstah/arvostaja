@@ -20,7 +20,7 @@
 
 <!-- SEO -->
 <svelte:head>
-	<title>{title}</title>
+	<title>{title} | Arvostaja</title>
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={title} />
 </svelte:head>

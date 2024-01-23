@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 	import { Articles } from '$lib/components';
 	import Card from './Card.svelte';
+	import { Button } from '$lib/components/ui/button';
 
 	type Card = {
 		title: string;
@@ -48,7 +49,10 @@
 	<div class="cols cols-banner">
 		<div class="col col-content">
 			<h1>Arvostaja</h1>
-			<p>Tervetuloa! Liity mukaan ja kehity kanssani sijoittajana elämänmittaisella matkalla.</p>
+			<div class="description">
+				<p><strong>Tervetuloa! 👋</strong></p>
+				<p>Liity mukaan ja kehity kanssani sijoittajana elämänmittaisella matkalla.</p>
+			</div>
 			<div class="thesis">
 				<ol>
 					{#each ['Osta laadukkaita yhtiöitä.', 'Älä maksa niistä liikaa.', 'Älä tee mitään.'] as item, index}
@@ -58,8 +62,10 @@
 				<em>— Terry Smith, Fundsmith</em>
 			</div>
 			<div class="buttons">
-				<a href={`${$page.url.origin}/artikkelit`}>Artikkelit</a>
-				<a href={`${$page.url.origin}/salkku`}>Avaa salkku</a>
+				<Button size="lg" variant="primary" href={`${$page.url.origin}/artikkelit`}>
+					Artikkelit
+				</Button>
+				<Button size="lg" variant="white" href={`${$page.url.origin}/salkku`}>Avaa salkku</Button>
 			</div>
 		</div>
 		<div class="col col-image">
@@ -185,12 +191,14 @@
 
 <style lang="scss">
 	.cols-banner {
+		$breakpoint: 900px;
+
 		display: grid;
 		gap: 3rem;
 
-		@media (min-width: 1000px) {
+		@media (min-width: $breakpoint) {
 			gap: 10rem;
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: 57fr 43fr;
 		}
 
 		@media (min-width: 1300px) {
@@ -243,9 +251,13 @@
 		}
 
 		.col-content {
-			p,
+			.description,
 			.thesis {
 				margin: 2.2rem 0;
+			}
+
+			.description p {
+				margin: 1rem 0;
 			}
 
 			.buttons {
@@ -253,40 +265,19 @@
 				flex-wrap: wrap;
 				gap: 2rem;
 
-				a {
-					text-decoration: none;
-					background-color: white;
-					padding: 1.2rem 2.8rem;
-					border-radius: 8px;
-					color: black;
-					display: inline-flex;
-					justify-content: center;
-					font-weight: 500;
-					outline: 2px solid transparent;
-					outline-offset: 0px;
+				:global(a) {
 					width: 100%;
 
-					@media (min-width: 600px) {
+					@media (min-width: $breakpoint) {
 						width: auto;
-					}
-
-					&:hover,
-					&:focus {
-						outline-offset: 6px;
-						outline: 2px solid white;
-					}
-
-					&:first-child {
-						background-color: #4338ca;
-						color: white;
-
-						&:hover,
-						&:focus {
-							outline: 2px solid #4338ca;
-						}
 					}
 				}
 			}
+		}
+
+		.col-image {
+			display: flex;
+			justify-content: center;
 		}
 	}
 

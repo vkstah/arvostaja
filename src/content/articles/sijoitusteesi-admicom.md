@@ -5,7 +5,6 @@ datePublished: '2023-11-18'
 dateLastUpdated: '2023-11-18'
 published: false
 thumbnailCloudinaryId: a4h5d160vcwwxtp5jp4g
-slug: sijoitusteesi-admicom
 stocks:
   - admicom
 ---

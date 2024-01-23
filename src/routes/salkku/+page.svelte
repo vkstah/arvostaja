@@ -58,6 +58,7 @@
 		name="description"
 		content="Kurkista henkilökohtaiseen salkkuuni. Sijoitan yksinomaan laadukkaisiin vapaata kassavirtaa tuottaviin yhtiöihin, joiden tulevaisuus on mielestäni valoisa."
 	/>
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <div class="container container-banner">

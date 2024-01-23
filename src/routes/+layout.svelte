@@ -24,6 +24,10 @@
 		{
 			name: 'Salkku',
 			url: '/salkku'
+		},
+		{
+			name: 'Sanasto',
+			url: '/sanasto'
 		}
 	];
 
@@ -191,7 +195,7 @@
 	}
 
 	.site-header {
-		--height-header: 80px;
+		--height-header: 92px;
 		--height-header-mobile: 72px;
 
 		height: var(--height-header-mobile);

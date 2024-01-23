@@ -36,6 +36,13 @@ export type Article = {
 	stocks?: Stock[];
 };
 
+export type Term = {
+	title: string;
+	published: boolean;
+	slug: string;
+	datePublished: string;
+};
+
 export type Stock = 'admicom' | 'tokmanni';
 
 export type Holding = {

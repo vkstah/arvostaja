@@ -5,7 +5,6 @@ datePublished: '2023-9-26'
 dateLastUpdated: '2024-1-14'
 published: true
 thumbnailCloudinaryId: kcxtefvblcaswkrfafdw
-slug: 6-vinkkia-sijoittajille
 ---
 
 <script lang="ts">

@@ -1,21 +1,24 @@
 <script lang="ts">
-	export let value: any = undefined;
+	export let value: string | number | undefined = undefined;
 	export let unit: string = '';
+
+	$: if ($$restProps.type === 'number') {
+		value = Number(value);
+	}
 
 	let isFocused = false;
 	const onFocus = () => (isFocused = true);
 	const onBlur = () => (isFocused = false);
 </script>
 
-<div class={isFocused ? 'wrapper focused' : 'wrapper'}>
+<div class="input" class:input-focused={isFocused}>
 	<input
-		{...$$restProps}
 		bind:value
+		on:focus={onFocus}
 		on:blur={onBlur}
 		on:change
 		on:click
 		on:contextmenu
-		on:focus={onFocus}
 		on:keydown
 		on:keypress
 		on:keyup
@@ -24,7 +27,7 @@
 		on:mouseleave
 		on:paste
 		on:input
-		type="number"
+		{...$$restProps}
 	/>
 	{#if unit}
 		<div class="unit">{unit}</div>
@@ -32,21 +35,20 @@
 </div>
 
 <style lang="scss">
-	$padding-horizontal: 1.8rem;
-	$padding-vertical: 1rem;
-
-	.wrapper {
-		background-color: #26272e;
+	.input {
+		background-color: transparent;
+		border: 1px solid var(--color-border);
 		border-radius: 6px;
 		display: inline-flex;
 		justify-content: space-between;
 		width: 100%;
 		outline: 2px solid transparent;
-		outline-offset: 0px;
+		outline-offset: 4px;
+		padding-left: 12px;
 		transition: all 0.2s;
 
-		&.focused {
-			outline: 2px solid rgb(125, 125, 125);
+		&-focused {
+			outline: 2px solid var(--color-governor-bay);
 		}
 	}
 
@@ -56,10 +58,7 @@
 		color: var(--color-white);
 		font-weight: var(--font-weight-medium);
 		outline: none;
-		padding-left: $padding-horizontal;
-		padding-right: $padding-horizontal;
-		padding-top: $padding-vertical;
-		padding-bottom: $padding-vertical;
+		height: 48px;
 		width: 100%;
 	}
 
@@ -70,8 +69,9 @@
 		display: flex;
 		justify-content: center;
 		flex-shrink: 0;
-		width: 80px;
-		background-color: #1a1b22;
+		padding-left: 20px;
+		padding-right: 20px;
+		background-color: var(--color-border);
 		opacity: 0.5;
 	}
 
