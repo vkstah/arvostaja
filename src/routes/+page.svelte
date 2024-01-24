@@ -229,7 +229,7 @@
 						content: counter(li);
 						counter-increment: li;
 						color: #fff;
-						background-color: var(--color-governor-bay);
+						background-color: var(--color-primary);
 						border-radius: 50%;
 						height: 36px;
 						width: 36px;

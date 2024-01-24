@@ -217,8 +217,8 @@
 				}
 
 				&-total {
-					background-color: var(--color-governor-bay);
-					border-color: var(--color-governor-bay);
+					background-color: var(--color-primary);
+					border-color: var(--color-primary);
 
 					h2,
 					p {

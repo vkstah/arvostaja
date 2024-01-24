@@ -53,7 +53,7 @@
 				datasets: [
 					{
 						backgroundColor: data.map((row) => row.color),
-						borderColor: data.map((row) => '#171717'),
+						borderColor: data.map((row) => 'black'),
 						borderWidth: 10,
 						hoverOffset: 45,
 						data: data.map((row) => row.weight)

@@ -32,15 +32,15 @@
 					{
 						label: 'Sijoitettu summa',
 						data: data.map((row) => Math.round(row.investedAmount)),
-						backgroundColor: '#4338ca',
-						borderColor: '#4338ca',
+						backgroundColor: '#652cd1',
+						borderColor: '#652cd1',
 						stack: 'stack1'
 					},
 					{
 						label: 'Kokonaiskorko',
 						data: data.map((row) => Math.round(row.generatedAmount)),
-						backgroundColor: 'rgba(67, 56, 202, 0.4)',
-						borderColor: 'rgba(67, 56, 202, 0.4)',
+						backgroundColor: 'rgba(101, 44, 209, 0.25)',
+						borderColor: 'rgba(101, 44, 209, 0.25)',
 						stack: 'stack1'
 					}
 				]

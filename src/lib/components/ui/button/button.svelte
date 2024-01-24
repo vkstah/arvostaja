@@ -23,7 +23,6 @@
 <style lang="scss">
 	.button {
 		appearance: none;
-		border: 1px solid var(--color-governor-bay);
 		border-radius: 8px;
 		color: black;
 		cursor: pointer;
@@ -44,17 +43,19 @@
 		width: auto;
 
 		&-primary {
-			background-color: var(--color-governor-bay);
+			background-color: var(--color-primary);
+			border: 1px solid var(--color-primary);
 			color: var(--color-white);
 
 			&:hover,
 			&:focus {
-				outline: 2px solid var(--color-governor-bay);
+				outline: 2px solid var(--color-primary);
 			}
 		}
 
 		&-white {
 			background-color: var(--color-white);
+			border: 1px solid var(--color-white);
 
 			&:hover,
 			&:focus {

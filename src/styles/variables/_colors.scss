@@ -3,13 +3,17 @@
 :root {
 	// Color pool
 	--color-cod-gray: #171717;
-	--color-test: hsl(252, 12%, 8%);
+	--color-test: hsl(224 71.4% 4.1%);
 	--color-cadet-blue: #a9adc1;
 	--color-governor-bay: #4338ca;
+	--color-purple-heart: #652cd1;
 	--color-turquoise: #2cdcb3;
 	--color-gallery: #ededed;
 	--color-mirage: #1e293b;
 	--color-white: #fff;
+
+	// Essentials
+	--color-primary: var(--color-purple-heart);
 
 	// Elements
 	--color-heading: var(--color-gallery);

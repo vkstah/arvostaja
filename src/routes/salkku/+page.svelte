@@ -1,4 +1,12 @@
 <script lang="ts">
+	import {
+		Card,
+		CardDescription,
+		CardHeader,
+		CardTitle,
+		CardContent
+	} from '$lib/components/ui/card';
+	import { Icon } from '$lib/components/ui/icon';
 	import type { Holding } from '$lib/types';
 	import Chart from './Chart.svelte';
 
@@ -70,19 +78,43 @@
 	</p>
 </div>
 <div class="container container-summary">
-	<div class="cols cols-key-data">
-		<div class="col col-key-data">
-			<h2>Päivitetty</h2>
-			<p class="value">19.11.2023</p>
-		</div>
-		<div class="col col-key-data">
-			<h2>YTD</h2>
-			<p class="value profit negative">-0,38 %</p>
-		</div>
-		<div class="col col-key-data">
-			<h2>Aloituksesta</h2>
-			<p class="value profit negative">-20,85 %</p>
-		</div>
+	<div class="cols cols-cards">
+		<Card>
+			<CardHeader>
+				<CardTitle>Viimeisin päivitys</CardTitle>
+				<CardDescription>Viimeisin päivitysajankohta.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<div class="icon-value">
+					<Icon name="calendar" />
+					<span class="value">19.11.2023</span>
+				</div>
+			</CardContent>
+		</Card>
+		<Card>
+			<CardHeader>
+				<CardTitle>YTD</CardTitle>
+				<CardDescription>Salkun tuotto vuoden alusta.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<div class="icon-value">
+					<Icon name="arrow-up" />
+					<span class="value">-0,38 %</span>
+				</div>
+			</CardContent>
+		</Card>
+		<Card>
+			<CardHeader>
+				<CardTitle>Yhteensä</CardTitle>
+				<CardDescription>Salkun tuotto koko ajalta.</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<div class="icon-value">
+					<Icon name="arrow-down" />
+					<span class="value">-20,85 %</span>
+				</div>
+			</CardContent>
+		</Card>
 	</div>
 </div>
 <div class="container container-visualization">
@@ -100,7 +132,6 @@
 				<tbody>
 					{#each data as row, index}
 						<tr
-							style="border-left: 5px solid {row.color}"
 							on:mouseover={() => (selectedIndex = index)}
 							on:focus={() => (selectedIndex = index)}
 							on:mouseleave={() => (selectedIndex = null)}
@@ -128,8 +159,8 @@
 	}
 
 	.container-summary {
-		padding-top: 0;
-		padding-bottom: 0;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 
 	.container-visualization {
@@ -145,7 +176,7 @@
 		margin-bottom: 0;
 	}
 
-	.cols-key-data {
+	.cols-cards {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
@@ -159,70 +190,19 @@
 		}
 
 		@media (min-width: 1000px) {
+			gap: 2.4rem;
 			grid-template-columns: repeat(4, 1fr);
 		}
-	}
 
-	.col-key-data {
-		border-radius: 8px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		background-color: #202020;
-		padding: 1rem 1.4rem;
-		border-radius: 12px;
-
-		@media (min-width: 600px) {
-			padding: 1.6rem 2rem;
-		}
-
-		h2 {
-			margin-bottom: 0;
-			font-size: 16px;
-			color: white;
-
-			@media (min-width: 600px) {
-				font-size: 20px;
-			}
-		}
-
-		.value {
-			margin-top: 0.6rem;
-			font-weight: var(--font-weight-bold);
+		.icon-value {
+			align-items: center;
+			display: flex;
 			font-size: 20px;
+			font-weight: 700;
+			gap: 14px;
 
-			@media (min-width: 600px) {
-				font-size: 24px;
-			}
-		}
-
-		.profit {
-			&::after {
-				content: '';
-				display: inline-block;
-				width: 0;
-				height: 0;
-				border-left: 10px solid transparent;
-				border-right: 10px solid transparent;
-				border-bottom: 10px solid transparent;
-				margin-left: 0.4rem;
-			}
-
-			&.positive {
-				color: #22c55e;
-
-				&::after {
-					border-bottom-color: #22c55e;
-				}
-			}
-			&.negative {
-				color: #ef4444;
-
-				&::after {
-					border-bottom-color: #ef4444;
-					transform: rotate(180deg);
-				}
+			:global(svg) {
+				color: var(--color-primary);
 			}
 		}
 	}
@@ -238,6 +218,8 @@
 	}
 
 	.col-table {
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
 		overflow-x: auto;
 	}
 
@@ -246,10 +228,11 @@
 	}
 
 	table {
-		text-align: left;
-		color: rgb(225, 225, 225);
-		border-spacing: 0;
+		text-indent: 0;
+		border-color: inherit;
 		border-collapse: collapse;
+		text-align: left;
+		color: #f9fafb;
 		font-size: 14px;
 		width: 100%;
 
@@ -260,6 +243,7 @@
 		th,
 		td {
 			padding: 8px 14px;
+			font-size: 16px;
 
 			@media (min-width: 600px) {
 				padding: 16px 24px;
@@ -267,49 +251,18 @@
 		}
 
 		th {
-			background-color: #171717;
+			color: #a1a1aa;
 			font-weight: var(--font-weight-medium);
 		}
 
-		tbody > tr {
-			border-top: 1px solid #3b3b3b;
-			border-bottom: 1px solid #3b3b3b;
-			border-right: 1px solid #3b3b3b;
-			background-color: #202020;
+		tr {
+			border-bottom: 1px solid var(--color-border);
+			transition-property: background-color;
+			transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+			transition-duration: 0.15s;
 
 			&:hover {
-				background-color: #3b3b3b;
-			}
-		}
-
-		td.profit {
-			font-weight: var(--font-weight-medium);
-
-			&.positive {
-				color: #22c55e;
-
-				&::after {
-					border-bottom-color: #22c55e;
-				}
-			}
-			&.negative {
-				color: #ef4444;
-
-				&::after {
-					border-bottom-color: #ef4444;
-					transform: rotate(180deg);
-				}
-			}
-
-			&::after {
-				content: '';
-				display: inline-block;
-				width: 0;
-				height: 0;
-				border-left: 8px solid transparent;
-				border-right: 8px solid transparent;
-				border-bottom: 8px solid transparent;
-				margin-left: 0.4rem;
+				background-color: hsl(215 27.9% 16.9%/0.5);
 			}
 		}
 	}

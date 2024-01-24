@@ -48,7 +48,7 @@
 		transition: all 0.2s;
 
 		&-focused {
-			outline: 2px solid var(--color-governor-bay);
+			outline: 2px solid var(--color-primary);
 		}
 	}
 
@@ -66,13 +66,13 @@
 		align-items: center;
 		border-top-right-radius: 6px;
 		border-bottom-right-radius: 6px;
+		color: rgba(255, 255, 255, 0.45);
 		display: flex;
 		justify-content: center;
 		flex-shrink: 0;
 		padding-left: 20px;
 		padding-right: 20px;
 		background-color: var(--color-border);
-		opacity: 0.5;
 	}
 
 	/* Remove arrows / spinners */

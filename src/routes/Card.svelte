@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import { Icon } from '$lib/components/ui/icon';
 
 	export let title: string;
 	export let description: string;
