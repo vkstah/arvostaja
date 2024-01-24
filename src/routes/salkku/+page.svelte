@@ -178,19 +178,23 @@
 
 	.cols-cards {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr;
 		gap: 1rem;
 		margin-top: 4rem;
 		margin-bottom: 1.4rem;
 
 		@media (min-width: 580px) {
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 			gap: 2.8rem;
 			margin-bottom: 2.8rem;
 		}
 
 		@media (min-width: 1000px) {
 			gap: 2.4rem;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media (min-width: 1400px) {
 			grid-template-columns: repeat(4, 1fr);
 		}
 
