@@ -246,8 +246,9 @@
 
 		th,
 		td {
-			padding: 8px 14px;
 			font-size: 16px;
+			padding: 8px 14px;
+			white-space: nowrap;
 
 			@media (min-width: 600px) {
 				padding: 16px 24px;
