@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { Button } from '$lib/components/ui/button';
+
 	export let value: string | number | undefined = undefined;
 	export let unit: string = '';
+	export let plusMinus: boolean = false;
 
 	$: if ($$restProps.type === 'number') {
 		value = Number(value);

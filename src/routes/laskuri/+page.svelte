@@ -4,6 +4,7 @@
 	import { calculateCompoundedAmount, separateThousands } from '$lib/utils';
 	import { Label } from '$lib/components/ui/label';
 	import { Input } from '$lib/components/ui/input';
+	import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
 
 	let principalAmount: number = 2000;
 	let years: number = 10;
@@ -83,17 +84,35 @@
 		<div class="cols cols-results">
 			{#if lastYear}
 				<div class="cols cols-details">
-					<div class="col col-invested">
-						<h2>Sijoitettu summa</h2>
-						<p>{separateThousands(Math.round(lastYear.investedAmount))} €</p>
+					<div class="invested">
+						<Card>
+							<CardHeader>
+								<h3 class="title">Sijoitettu summa</h3>
+							</CardHeader>
+							<CardContent>
+								<p class="value">{separateThousands(Math.round(lastYear.investedAmount))} €</p>
+							</CardContent>
+						</Card>
 					</div>
-					<div class="col col-generated">
-						<h2>Kokonaiskorko</h2>
-						<p>{separateThousands(Math.round(lastYear.generatedAmount))} €</p>
+					<div class="generated">
+						<Card>
+							<CardHeader>
+								<h3 class="title">Kokonaiskorko</h3>
+							</CardHeader>
+							<CardContent>
+								<p class="value">{separateThousands(Math.round(lastYear.generatedAmount))} €</p>
+							</CardContent>
+						</Card>
 					</div>
-					<div class="col col-total">
-						<h2>Yhteensä</h2>
-						<p>{separateThousands(Math.round(lastYear.totalAmount))} €</p>
+					<div class="total">
+						<Card>
+							<CardHeader>
+								<h3 class="title">Yhteensä</h3>
+							</CardHeader>
+							<CardContent>
+								<p class="value">{separateThousands(Math.round(lastYear.totalAmount))} €</p>
+							</CardContent>
+						</Card>
 					</div>
 				</div>
 			{/if}
@@ -175,56 +194,34 @@
 				grid-template-columns: 1fr;
 			}
 
-			.col {
-				border-radius: 8px;
-				padding: 1rem;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				background-color: transparent;
-				border: 1px solid var(--color-border);
-				align-self: flex-start;
+			.title {
+				font-size: 12px;
+				font-weight: 400;
+				margin: 0;
 
 				@media (min-width: 600px) {
-					padding: 1.2rem;
+					font-size: 16px;
 				}
+			}
 
-				h2 {
-					font-size: 12px;
-					font-weight: 400;
-					margin: 0;
+			.value {
+				font-size: 20px;
+				font-weight: var(--font-weight-semibold);
+				margin: 0;
 
-					@media (min-width: 600px) {
-						font-size: 16px;
-					}
+				@media (min-width: 600px) {
+					font-size: 26px;
 				}
+			}
 
-				p {
-					margin-top: 0.6rem;
-					font-size: 20px;
-					font-weight: var(--font-weight-semibold);
+			.invested p,
+			.generated p {
+				color: var(--color-white);
+			}
 
-					@media (min-width: 600px) {
-						font-size: 26px;
-					}
-				}
-
-				&-invested,
-				&-generated {
-					p {
-						color: white;
-					}
-				}
-
-				&-total {
-					background-color: var(--color-primary);
-					border-color: var(--color-primary);
-
-					h2,
-					p {
-						color: white;
-					}
-				}
+			.total :global(.card) {
+				background-color: var(--color-primary);
+				border-color: var(--color-primary);
 			}
 		}
 	}
