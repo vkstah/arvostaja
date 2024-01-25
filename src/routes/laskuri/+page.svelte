@@ -84,7 +84,7 @@
 		<div class="cols cols-results">
 			{#if lastYear}
 				<div class="cols cols-details">
-					<div class="invested">
+					<div class="col col-invested">
 						<Card>
 							<CardHeader>
 								<h3 class="title">Sijoitettu summa</h3>
@@ -94,7 +94,7 @@
 							</CardContent>
 						</Card>
 					</div>
-					<div class="generated">
+					<div class="col col-generated">
 						<Card>
 							<CardHeader>
 								<h3 class="title">Kokonaiskorko</h3>
@@ -104,7 +104,7 @@
 							</CardContent>
 						</Card>
 					</div>
-					<div class="total">
+					<div class="col col-total">
 						<Card>
 							<CardHeader>
 								<h3 class="title">Yhteensä</h3>
@@ -207,6 +207,7 @@
 			.value {
 				font-size: 20px;
 				font-weight: var(--font-weight-semibold);
+				letter-spacing: -0.02em;
 				margin: 0;
 
 				@media (min-width: 600px) {
@@ -214,14 +215,16 @@
 				}
 			}
 
-			.invested p,
-			.generated p {
-				color: var(--color-white);
-			}
+			.col-total {
+				:global(.card) {
+					background-color: var(--color-primary);
+					border-color: var(--color-primary);
+				}
 
-			.total :global(.card) {
-				background-color: var(--color-primary);
-				border-color: var(--color-primary);
+				:global(.title),
+				:global(.value) {
+					color: var(--color-white);
+				}
 			}
 		}
 	}

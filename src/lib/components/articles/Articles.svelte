@@ -24,8 +24,9 @@
 							src={article.thumbnailCloudinaryId}
 							alt=""
 							loading="lazy"
-							width="950"
+							width="600"
 							height="750"
+							crop="fill"
 						/>
 						{#if article.stocks}
 							<ul class="stocks">

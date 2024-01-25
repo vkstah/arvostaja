@@ -4,6 +4,7 @@
 	import { Articles } from '$lib/components';
 	import Card from './Card.svelte';
 	import { Button } from '$lib/components/ui/button';
+	import { CldImage } from 'svelte-cloudinary';
 
 	type Card = {
 		title: string;
@@ -278,6 +279,20 @@
 		.col-image {
 			display: flex;
 			justify-content: center;
+		}
+	}
+
+	.cols-greeting {
+		display: grid;
+		grid-template-columns: 2fr 3fr;
+		column-gap: 9ch;
+
+		.col-image :global(.image) {
+			aspect-ratio: 3/4;
+			width: 100%;
+			height: 100%;
+			border-radius: 8px;
+			transition: all 0.2s;
 		}
 	}
 

@@ -70,6 +70,7 @@
 			width="1040"
 			height="600"
 			quality="auto"
+			crop="fill"
 		/>
 	</div>
 	<div class="container container-content">
