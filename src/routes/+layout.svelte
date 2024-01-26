@@ -166,7 +166,9 @@
 			<span>Ladataan...</span>
 		</div>
 	{/if}
-	<slot />
+	<main>
+		<slot />
+	</main>
 	<footer class="site-footer">
 		<div class="container">
 			<div class="bottom">
