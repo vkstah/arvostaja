@@ -8,7 +8,8 @@ thumbnailCloudinaryId: kcxtefvblcaswkrfafdw
 ---
 
 <script lang="ts">
-  import { Quote, Highlight, Development } from '$lib/components'
+  import { Development } from '$lib/components/ui/development'
+  import { Highlight, Quote } from '$lib/components/ui/markdown'
 </script>
 
 Tässä artikkelissa kerron seitsemän omasta mielestäni tärkeintä vinkkiä sijoittajille. Pyrin itse keskittymään nimenomaan näihin asioihin, kun etsin potentiaalisia sijoituskohteita. Kaiken melun keskellä on pyrittävä keskittymään omaan tekemiseen ja sulkemaan ulos kaikki epäolennainen. Tämä on helpommin sanottu kuin tehty.

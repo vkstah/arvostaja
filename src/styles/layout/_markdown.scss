@@ -1,0 +1,35 @@
+.markdown {
+	a {
+		color: var(--color-link-text);
+		text-decoration-color: var(--color-link-text);
+		text-decoration: underline;
+
+		&::after {
+			display: inline-block;
+			content: '';
+			background-color: currentColor;
+			mask: url('/arrow-link.svg') no-repeat 50% 50%;
+			-webkit-mask: url('/arrow-link.svg') no-repeat 50% 50%;
+			margin: -0.3em -0.2em -0.25em 0.05em;
+			width: 1.1em;
+			height: 1.1em;
+			transition: all 0.15s;
+		}
+
+		&:hover,
+		&:focus {
+			&::after {
+				transform: translate(3px, -3px);
+			}
+		}
+	}
+
+	ul > li,
+	ol > li {
+		--padding-vertical: 0.2rem;
+
+		padding-top: var(--padding-vertical);
+		padding-bottom: var(--padding-vertical);
+		padding-left: 0.4rem;
+	}
+}

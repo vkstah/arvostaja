@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { fade, fly, slide } from 'svelte/transition';
 	import Loader from '$lib/components/Loader.svelte';
+	import SiteFooter from './site-footer.svelte';
 
 	let headerHeight = 0;
 	let isMenuOpen = false;
@@ -57,16 +58,9 @@
 		headerHeight = header.offsetHeight;
 	};
 
-	const isMobile = (window: Window): boolean => {
-		return window.innerWidth < 1000;
-	};
-
 	onMount(async () => {
 		const header = document.querySelector('.site-header') as HTMLElement;
 		setHeaderHeight(header);
-
-		// Exit if not on mobile
-		// if (!isMobile(window)) return;
 
 		// Handle scrolling events
 		let prevScrollY = window.scrollY;
@@ -169,17 +163,7 @@
 	<main>
 		<slot />
 	</main>
-	<footer class="site-footer">
-		<div class="container">
-			<div class="bottom">
-				<p>
-					Tällä sivustolla esitetty ei ole, eikä sitä tule käsittää kehotukseksi merkitä, ostaa tai
-					myydä arvopapereita.
-				</p>
-				<p>Kaikki oikeudet pidätetään. Arvostaja {new Date().getFullYear()}.</p>
-			</div>
-		</div>
-	</footer>
+	<SiteFooter />
 	{#if isMenuOpen}
 		<div
 			class="overlay"
@@ -187,6 +171,7 @@
 			on:click={closeMenu}
 			on:keydown={() => {}}
 			tabindex="-1"
+			aria-hidden="true"
 		/>
 	{/if}
 </div>
@@ -347,13 +332,5 @@
 		align-items: center;
 		color: black;
 		gap: 2rem;
-	}
-
-	.site-footer {
-		.bottom p {
-			margin: 0.4rem;
-			padding: 0;
-			text-align: center;
-		}
 	}
 </style>

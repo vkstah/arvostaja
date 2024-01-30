@@ -11,17 +11,19 @@
 
 <style lang="scss">
 	blockquote {
-		background-color: rgba(2, 132, 199, 0.1);
-		border-left: 8px solid #0284c7;
+		--color-quote-border: #652cd1;
+
+		background-color: #662cd11c;
+		border-left: 8px solid var(--color-highligh-border);
 		border-radius: 8px;
-		color: #4bc3ff;
+		color: var(--color-white);
 		padding: 1.6rem;
 		margin: 0;
 		position: relative;
 		font-style: italic;
 
 		@media (min-width: 600px) {
-			border-left: 10px solid #0284c7;
+			border-left: 10px solid var(--color-quote-border);
 			padding: 2.4rem;
 		}
 

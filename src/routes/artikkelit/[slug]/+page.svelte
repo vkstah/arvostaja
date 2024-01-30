@@ -66,10 +66,9 @@
 		<CldImage
 			class="thumbnail"
 			src={data.meta.thumbnailCloudinaryId}
-			alt="Artikkelin taustakuva"
-			width="1040"
-			height="600"
-			quality="auto"
+			alt="Artikkelin taustakuva."
+			width="1100"
+			height="700"
 			crop="fill"
 		/>
 	</div>
@@ -98,14 +97,11 @@
 	}
 
 	* :global(.thumbnail) {
-		height: 100%;
+		border: 1px solid var(--color-border);
 		min-height: 400px;
-		max-height: 600px;
-		width: 100%;
-		object-fit: cover;
 
 		@media (min-width: 1070px) {
-			border-radius: 12px;
+			border-radius: 10px;
 		}
 	}
 

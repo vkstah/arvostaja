@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Articles } from '$lib/components';
+	import { ArticleFeed } from '$lib/components/features/article-feed';
 
 	export let data;
 	const articles = data.articles;
@@ -12,10 +12,7 @@
 <div class="container">
 	<h1>Artikkelit</h1>
 	<p>Sijoitusaiheisia juttuja.</p>
-</div>
-
-<div class="container">
-	<Articles {articles} />
+	<ArticleFeed {articles} />
 </div>
 
 <style lang="scss">
