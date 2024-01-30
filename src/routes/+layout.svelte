@@ -104,7 +104,7 @@
 			<button
 				aria-haspopup="true"
 				aria-expanded={isMenuOpen}
-				aria-controls="nav"
+				aria-controls="nav-mobile"
 				aria-label="Päävalikko"
 				class="nav-toggle"
 				on:click={toggleMenu}
@@ -143,7 +143,7 @@
 					in:slide|global
 					out:slide|global
 				>
-					<nav id="nav" class="nav-mobile">
+					<nav id="nav-mobile" class="nav-mobile">
 						<ul>
 							{#each menuItems as menuItem}
 								<li>
