@@ -10,7 +10,7 @@
 	let canvas: ChartItem;
 
 	$: if (chart && chart.tooltip) {
-		if (selectedIndex != null) {
+		if (typeof selectedIndex === 'number') {
 			if (chart.getActiveElements().length > 0 && chart.tooltip.getActiveElements().length > 0) {
 				chart.setActiveElements([]);
 				chart.tooltip.setActiveElements([], { x: 0, y: 0 });
