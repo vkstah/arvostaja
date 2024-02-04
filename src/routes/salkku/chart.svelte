@@ -45,6 +45,31 @@
 	}
 
 	onMount(() => {
+		const doughnutHoverLabel = {
+			id: 'doughnutHoverLabel',
+			afterDraw(chart: Chart, args: any, pluginOptions: any) {
+				const { ctx, data } = chart;
+
+				if (!data.labels) return;
+				if (!chart.getActiveElements()[0]) return;
+
+				const index = chart.getActiveElements()[0].index;
+				const dataObject = `${data.datasets[0].data[index]}`;
+
+				const text = `${dataObject.replace('.', ',')} %`;
+
+				const xCoord = chart.getDatasetMeta(0).data[0].x;
+				const yCoord = chart.getDatasetMeta(0).data[0].y;
+				ctx.font = 'bold 32px Ubuntu';
+				ctx.fillStyle = 'white';
+				ctx.textAlign = 'center';
+				ctx.textBaseline = 'middle';
+				ctx.fillText(text, xCoord, yCoord);
+
+				ctx.save();
+			}
+		};
+
 		const config: ChartConfiguration = {
 			type: 'doughnut',
 			data: {
@@ -77,7 +102,8 @@
 						}
 					}
 				}
-			}
+			},
+			plugins: [doughnutHoverLabel]
 		};
 		chart = new Chart(canvas, config);
 	});
