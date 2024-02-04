@@ -1,4 +1,11 @@
 <script lang="ts">
+	import {
+		Card,
+		CardContent,
+		CardDescription,
+		CardHeader,
+		CardTitle
+	} from '$lib/components/ui/card';
 	import type { Holding } from '$lib/types';
 	import Chart from './chart.svelte';
 
@@ -53,39 +60,51 @@
 </script>
 
 <div class="container container-visualization">
-	<div class="cols cols-data">
-		<div class="col col-table">
-			<table>
-				<thead>
-					<tr>
-						<th>Nimi</th>
-						<th>Keskikurssi</th>
-						<th>Tuotto, %</th>
-						<th>Painoarvo, %</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each data as row, index}
-						<tr
-							on:mouseover={() => (selectedIndex = index)}
-							on:focus={() => (selectedIndex = index)}
-							on:mouseleave={() => (selectedIndex = undefined)}
-						>
-							<td>{row.title}</td>
-							<td>{row.acquisitionPrice.toFixed(2).replace('.', ',')} EUR</td>
-							<td class="profit" class:positive={row.profit >= 0} class:negative={row.profit < 0}>
-								{row.profit.toFixed(1).replace('.', ',')} %
-							</td>
-							<td>{row.weight.toFixed(1).replace('.', ',')} %</td>
-						</tr>
-					{/each}
-				</tbody>
-			</table>
-		</div>
-		<div class="col col-chart">
-			<Chart {data} {selectedIndex} />
-		</div>
-	</div>
+	<Card>
+		<CardHeader>
+			<CardTitle>Omistukset</CardTitle>
+			<CardDescription>Selaa omistuksia riveittäin.</CardDescription>
+		</CardHeader>
+		<CardContent>
+			<div class="cols cols-data">
+				<div class="col col-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Nimi</th>
+								<th>Keskikurssi</th>
+								<th>Tuotto, %</th>
+								<th>Painoarvo, %</th>
+							</tr>
+						</thead>
+						<tbody>
+							{#each data as row, index}
+								<tr
+									on:mouseover={() => (selectedIndex = index)}
+									on:focus={() => (selectedIndex = index)}
+									on:mouseleave={() => (selectedIndex = undefined)}
+								>
+									<td>{row.title}</td>
+									<td>{row.acquisitionPrice.toFixed(2).replace('.', ',')} EUR</td>
+									<td
+										class="profit"
+										class:positive={row.profit >= 0}
+										class:negative={row.profit < 0}
+									>
+										{row.profit.toFixed(1).replace('.', ',')} %
+									</td>
+									<td>{row.weight.toFixed(1).replace('.', ',')} %</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</div>
+				<div class="col col-chart">
+					<Chart {data} {selectedIndex} />
+				</div>
+			</div>
+		</CardContent>
+	</Card>
 </div>
 
 <style lang="scss">

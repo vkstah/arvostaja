@@ -52,19 +52,11 @@
 				datasets: [
 					{
 						data: data.map((row) => row.weight),
-						backgroundColor: [
-							'#388E3C', // Green
-							'#1565C0', // Blue
-							'#FFA000', // Yellow
-							'#E64A19', // Orange
-							'#8E24AA', // Purple
-							'#512DA8', // Deep Purple
-							'#EF6C00', // Amber
-							'#5D4037', // Brown
-							'#455A64' // Blue Grey
-						],
-						borderColor: 'transparent',
-						hoverOffset: 25
+						backgroundColor: 'rgba(73, 98, 140, 0.3)',
+						borderColor: 'hsl(224 71.4% 4.1%)',
+						borderWidth: 8,
+						hoverOffset: 25,
+						hoverBackgroundColor: '#652cd1'
 					}
 				]
 			},
