@@ -118,6 +118,7 @@
 	}
 
 	.cols-data {
+		align-items: center;
 		display: grid;
 		row-gap: 3rem;
 
@@ -134,7 +135,7 @@
 	}
 
 	.col-chart {
-		align-self: center;
+		position: relative;
 		// padding-left: var(--padding-container-horizontal);
 		// padding-right: var(--padding-container-horizontal);
 	}
