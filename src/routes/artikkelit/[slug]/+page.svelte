@@ -16,6 +16,11 @@
 		admicom: Admicom,
 		tokmanni: Tokmanni
 	};
+
+	/**
+	 * TODO: Lazy load images using Blurhash-like functionality
+	 * @see https://support.cloudinary.com/hc/en-us/community/posts/4406158719250-Blurhash-like-functionality
+	 */
 </script>
 
 <!-- SEO -->
@@ -66,7 +71,10 @@
 		<CldImage
 			class="thumbnail"
 			src={data.meta.thumbnailCloudinaryId}
-			alt="Artikkelin taustakuva."
+			role="presentation"
+			alt=""
+			decoding="async"
+			fetchpriority="high"
 			width="1100"
 			height="700"
 			crop="fill"
